@@ -79,6 +79,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Dao\DaoAccount.cs" />
+    <Compile Include="helper\Helper.cs" />
     <Compile Include="Model\Account.cs" />
     <Compile Include="Model\Bill.cs" />
     <Compile Include="Model\BillInfo.cs" />

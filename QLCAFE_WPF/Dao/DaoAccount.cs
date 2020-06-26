@@ -20,5 +20,14 @@ namespace QLCAFE_WPF.Dao
             qlcafe.SaveChanges();
             return 1;
         }
+        public int checkAccount(Account account)
+        {
+            var user=qlcafe.Accounts.FirstOrDefault(x => x.UserName == account.UserName && x.Password == account.Password);
+            if (user != null)
+            {
+                return 1;
+            }
+            return 0;
+        }
     }
 }
