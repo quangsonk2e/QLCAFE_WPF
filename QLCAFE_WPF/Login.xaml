@@ -1,0 +1,42 @@
+﻿<Window x:Class="QLCAFE_WPF.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:QLCAFE_WPF.Viewmodel"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        Title="Login" Height="171.429" Width="439.85">
+    <Window.DataContext>
+        <local:LoginViewModel></local:LoginViewModel>
+    </Window.DataContext>
+    <Grid Margin="10">
+        <Grid.Resources>
+            <Style TargetType="TextBlock">
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="FontFamily" Value="tahoma"/>
+                <Setter Property="FontSize" Value="13px"/>
+            </Style>
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <TextBlock Text="Tên đăng nhập:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" FontWeight="Bold" />
+        <TextBlock Text="Mật khẩu:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <TextBox Grid.Row="0" Grid.Column="1" Margin="5 5" HorizontalAlignment="Stretch"/>
+        <PasswordBox Grid.Row="1" Grid.Column="1" Margin="5 5" Padding="5" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+        <Grid Grid.Row="2" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Content="Đăng nhập" VerticalAlignment="Center" Padding="5" HorizontalAlignment="Center" Width="100"/>
+            <Button Grid.Column="1" Content="Huỷ" VerticalAlignment="Center" Padding="5" HorizontalAlignment="Center" Width="100" Click="Button_Click"/>
+        </Grid>
+    </Grid>
+</Window>
