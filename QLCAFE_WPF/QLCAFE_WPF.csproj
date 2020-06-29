@@ -61,6 +61,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -88,6 +89,7 @@
     <Compile Include="Model\QLCafe.cs" />
     <Compile Include="Model\Tablefood.cs" />
     <Compile Include="Viewmodel\LoginViewModel.cs" />
+    <Compile Include="Viewmodel\MainViewModel.cs" />
     <Compile Include="Viewmodel\RelayCommand.cs" />
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

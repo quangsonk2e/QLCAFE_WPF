@@ -2,17 +2,15 @@
 using QLCAFE_WPF.Model;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Controls;
 using System.Windows;
 using System.Windows.Input;
 
 namespace QLCAFE_WPF.Viewmodel
 {
-    class LoginViewModel: BaseViewModel
+    class MainViewModel:BaseViewModel
     {
         DaoAccount dao = new DaoAccount();
         private string userName;
@@ -41,10 +39,10 @@ namespace QLCAFE_WPF.Viewmodel
         }
 
         public ICommand login { get; set; }
-        public ICommand PasswordChangedCommand { get; set; }
-        public ICommand close { get; set; }
         
-        public LoginViewModel()
+        public ICommand close { get; set; }
+
+        public MainViewModel()
         {
            
             login = new RelayCommand<Account>(x => true, x => {
@@ -56,7 +54,7 @@ namespace QLCAFE_WPF.Viewmodel
                 Application.Current.Shutdown();
                 // Application.Current.Shutdown();
             });
-            PasswordChangedCommand = new RelayCommand<PasswordBox>((p) => { return true; }, (p) => { Password = p.Password; });
+            
         }
         
     }
