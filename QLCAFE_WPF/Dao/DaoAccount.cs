@@ -1,6 +1,7 @@
 ﻿using QLCAFE_WPF.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,11 @@ namespace QLCAFE_WPF.Dao
             qlcafe.Accounts.Add(account);
             qlcafe.SaveChanges();
             return 1;
+        }
+        public ObservableCollection<Account> getAll()
+        {
+
+            return new ObservableCollection<Account>(qlcafe.Accounts.ToList());
         }
         public int checkAccount(Account account)
         {

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows;
 using System.Windows.Input;
+using QLCAFE_WPF.View;
 
 namespace QLCAFE_WPF.Viewmodel
 {
@@ -47,11 +48,19 @@ namespace QLCAFE_WPF.Viewmodel
         public LoginViewModel()
         {
            
-            login = new RelayCommand<Account>(x => true, x => {
-                MessageBox.Show(password+"\n"+userName);
+            login = new RelayCommand<Window>(x => true, x => {
+                MainWindow mainWindow = new MainWindow();
+                x.Hide();
+                mainWindow.ShowDialog();
+                
+                //if (dao.checkAccount(new Account{UserName=userName, Password=password})==1)
+                //{
+                    
+                //}
+
                // Application.Current.Shutdown();
             });
-            close = new RelayCommand<Account>(x => true, x =>
+            close = new RelayCommand<object>(x => true, x =>
             {
                 Application.Current.Shutdown();
                 // Application.Current.Shutdown();

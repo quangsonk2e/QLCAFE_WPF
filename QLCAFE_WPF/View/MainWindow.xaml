@@ -3,6 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
          xmlns:i = "http://schemas.microsoft.com/expression/2010/interactivity"
          xmlns:local="clr-namespace:QLCAFE_WPF.Viewmodel"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized"
         Title="MainWindow" Height="500" Width="500">
     <Window.DataContext>
         <local:MainViewModel x:Name="ds"></local:MainViewModel>
@@ -29,11 +31,26 @@
             <TabControl>
                 <TabItem Header="Bàn">
                     <Grid Background="#FFE5E5E5">
-                        
+                        <TextBlock Text="fdfdf"/>
                     </Grid>
                 </TabItem>
                 <TabItem Header="Admin">
-                    <Grid Background="#FFE5E5E5"/>
+                    <Grid Background="#FFE5E5E5">
+                        <TextBlock><Run Text="123"/><InlineUIContainer>
+                        		<ComboBox Width="120" ItemsSource="{Binding Path=Obs}" SelectedValue="{Binding Ac}">
+                                     <ComboBox.ItemTemplate>  
+                <DataTemplate>  
+                    <StackPanel Orientation="Horizontal">  
+                        <TextBlock Text="{Binding Path=id}"/>  
+                        <TextBlock Text=" - "/>  
+                        <TextBlock Text="{Binding Path=UserName}"/>  
+                    </StackPanel>  
+                </DataTemplate>  
+            </ComboBox.ItemTemplate> 
+                                </ComboBox>
+                        	</InlineUIContainer></TextBlock>
+                    </Grid>
+                   
                 </TabItem>
             </TabControl>
 

@@ -2,6 +2,7 @@
 using QLCAFE_WPF.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,20 @@ namespace QLCAFE_WPF.Viewmodel
     class MainViewModel:BaseViewModel
     {
         DaoAccount dao = new DaoAccount();
+        private ObservableCollection<Account> obs;
+        private Account ac;
+
+        public Account Ac
+        {
+            get { return ac; }
+            set { ac = value; }
+        }
+
+        public ObservableCollection<Account> Obs
+        {
+            get { return obs; }
+            set { obs = value; }
+        }
         private string userName;
 
         public string UserName
@@ -44,7 +59,8 @@ namespace QLCAFE_WPF.Viewmodel
 
         public MainViewModel()
         {
-           
+            obs = new ObservableCollection<Account>();
+            obs=dao.getAll();
             login = new RelayCommand<Account>(x => true, x => {
                 MessageBox.Show(password+"\n"+userName);
                // Application.Current.Shutdown();
@@ -55,6 +71,10 @@ namespace QLCAFE_WPF.Viewmodel
                 // Application.Current.Shutdown();
             });
             
+        }
+        public ObservableCollection<Account> getAccout()
+        {
+            return dao.getAll();
         }
         
     }
