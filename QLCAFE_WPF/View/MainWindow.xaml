@@ -9,6 +9,10 @@
     <Window.DataContext>
         <local:MainViewModel x:Name="ds"></local:MainViewModel>
     </Window.DataContext>
+    <Window.Resources>
+
+        <local:intToColor x:Key="con" ></local:intToColor>
+    </Window.Resources>
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Closed">
             <i:InvokeCommandAction Command="{Binding close}" 
@@ -36,25 +40,50 @@
                 </TabItem>
                 <TabItem Header="Admin">
                     <Grid Background="#FFE5E5E5">
-                        <TextBlock><Run Text="123"/><InlineUIContainer>
-                        		<ComboBox Width="120" ItemsSource="{Binding Path=Obs}" SelectedValue="{Binding Ac}">
-                                     <ComboBox.ItemTemplate>  
-                <DataTemplate>  
-                    <StackPanel Orientation="Horizontal">  
-                        <TextBlock Text="{Binding Path=id}"/>  
-                        <TextBlock Text=" - "/>  
-                        <TextBlock Text="{Binding Path=UserName}"/>  
-                    </StackPanel>  
-                </DataTemplate>  
-            </ComboBox.ItemTemplate> 
-                                </ComboBox>
+                        <TextBlock><Run Text="123"/><Run Text=" "/><InlineUIContainer>
+                        		<ComboBox Width="120" ItemsSource="{Binding Obs}" SelectedValue="{Binding Ac}">
+                        			<ComboBox.ItemTemplate>  
+                        				<DataTemplate>  
+                        					<WrapPanel Orientation="Horizontal">  
+                                                <Button Background="Aqua" Content="{Binding id}">
+                                                    
+                                                </Button>
+                        						
+                                                <!--<TextBlock Text="{Binding id}"/>  
+                        						<TextBlock Text=" - "/>  
+                        						<TextBlock Text="{Binding UserName}"/> --> 
+                        					</WrapPanel>  
+                        				</DataTemplate>  
+                        			</ComboBox.ItemTemplate> 
+                        		</ComboBox>
+                        	</InlineUIContainer><Run Text=" "/><InlineUIContainer>
+                        		<ListView Height="420" Width="346" ItemsSource="{Binding Obs}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
+                        			 
+                                    <ListBox.ItemTemplate>
+                                       
+                                        <DataTemplate>
+                                            
+                                            <StackPanel Orientation="Vertical">
+                                                <!--<Image Source="{Binding Image}" Stretch="None"/>-->
+                                                <Button Content="{Binding id}" Background="{Binding id, Converter={StaticResource con}}" Width="50" Height="50"  Command="{Binding Clickbutton}">
+                                                    
+                                                </Button>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                    <ListBox.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <WrapPanel IsItemsHost="True" Orientation="Horizontal"  />
+                                        </ItemsPanelTemplate>
+                                    </ListBox.ItemsPanel>
+                        		</ListView>
                         	</InlineUIContainer></TextBlock>
                     </Grid>
-                   
+
                 </TabItem>
             </TabControl>
 
         </Grid>
-        </DockPanel>
-    
+    </DockPanel>
+
 </Window>

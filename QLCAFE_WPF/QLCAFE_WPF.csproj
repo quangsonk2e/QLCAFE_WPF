@@ -88,6 +88,7 @@
     <Compile Include="Model\FoodCategory.cs" />
     <Compile Include="Model\QLCafe.cs" />
     <Compile Include="Model\Tablefood.cs" />
+    <Compile Include="Viewmodel\intToColor.cs" />
     <Compile Include="Viewmodel\LoginViewModel.cs" />
     <Compile Include="Viewmodel\MainViewModel.cs" />
     <Compile Include="Viewmodel\RelayCommand.cs" />

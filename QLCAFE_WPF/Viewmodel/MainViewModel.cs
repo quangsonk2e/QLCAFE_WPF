@@ -56,6 +56,7 @@ namespace QLCAFE_WPF.Viewmodel
         public ICommand login { get; set; }
         
         public ICommand close { get; set; }
+        public ICommand Clickbutton { get; set; }
 
         public MainViewModel()
         {
@@ -66,6 +67,11 @@ namespace QLCAFE_WPF.Viewmodel
                // Application.Current.Shutdown();
             });
             close = new RelayCommand<Account>(x => true, x =>
+            {
+                Application.Current.Shutdown();
+                // Application.Current.Shutdown();
+            });
+            Clickbutton = new RelayCommand<object>(x => true, x =>
             {
                 Application.Current.Shutdown();
                 // Application.Current.Shutdown();
