@@ -29,3 +29,4 @@ G:\soft\dotnet\wpf\QLCAFE_WPF\QLCAFE_WPF\bin\Debug\ko\System.Windows.Interactivi
 G:\soft\dotnet\wpf\QLCAFE_WPF\QLCAFE_WPF\bin\Debug\ru\System.Windows.Interactivity.resources.dll
 G:\soft\dotnet\wpf\QLCAFE_WPF\QLCAFE_WPF\bin\Debug\zh-Hans\System.Windows.Interactivity.resources.dll
 G:\soft\dotnet\wpf\QLCAFE_WPF\QLCAFE_WPF\bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
+G:\Soft\dotnet\wpf\QLCAFE_WPF\QLCAFE_WPF\obj\Debug\QLCAFE_WPF.csprojResolveAssemblyReference.cache

@@ -23,7 +23,7 @@ namespace QLCAFE_WPF.Viewmodel
                     return "White";
             }
             
-            return "";
+            
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)

@@ -5,7 +5,9 @@
          xmlns:local="clr-namespace:QLCAFE_WPF.Viewmodel"
         WindowStartupLocation="CenterScreen"
         WindowState="Maximized"
-        Title="MainWindow" Height="500" Width="500">
+        MinWidth="806"
+        MinHeight="500"
+        Title="MainWindow" Height="500" Width="806.767">
     <Window.DataContext>
         <local:MainViewModel x:Name="ds"></local:MainViewModel>
     </Window.DataContext>
@@ -34,27 +36,52 @@
         <Grid >
             <TabControl>
                 <TabItem Header="Bàn">
-                    <WrapPanel Background="#FFE5E5E5" >
-                        <ListView VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 0 0 0" ItemsSource="{Binding TbF}">
-                            <ListBox.ItemTemplate>
-                                <DataTemplate>
-                                    <StackPanel Orientation="Vertical">
-                                        <!--<Image Source="{Binding Image}" Stretch="None"/>-->
-                                        <Button Content="{Binding name}" Background="{Binding status, Converter={StaticResource con}}" Width="50" Height="50"                                                       
+                    <Grid  Background="#FFE5E5E5"  >
+                        
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <ListView Grid.Column="0" Grid.Row="0"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" ItemsSource="{Binding TbF}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" UseLayoutRounding="False">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Vertical">
+                                            <!--<Image Source="{Binding Image}" Stretch="None"/>-->
+                                            <Button Content="{Binding name}" Background="{Binding status, Converter={StaticResource con}}" Width="50" Height="50"                                                       
                                                         Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type ListView}}, Path=DataContext.Clickbutton}"
                                                         CommandParameter="{Binding status}">
-                                        </Button>
-                                       
-                                    </StackPanel>
-                                </DataTemplate>
-                            </ListBox.ItemTemplate>
-                            <ListBox.ItemsPanel>
-                                <ItemsPanelTemplate>
-                                    <WrapPanel IsItemsHost="True" Orientation="Horizontal"  />
-                                </ItemsPanelTemplate>
-                            </ListBox.ItemsPanel>
-                        </ListView>
-                    </WrapPanel>
+                                            </Button>
+
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                                <ListBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel />
+                                    </ItemsPanelTemplate>
+                                </ListBox.ItemsPanel>
+                            </ListView>
+                            <Grid Grid.Column="1" Grid.Row="0" Background="White">
+                                <StackPanel>
+                                    <Grid>
+                                        <Button Content="sdsd"></Button>
+                                    </Grid>
+                                    <Grid>
+                                        <Button Content="sdsd"></Button>
+                                    </Grid>
+                                    <Grid>
+                                        <Button Content="sdsd"></Button>
+                                    </Grid>
+                                </StackPanel>
+                            </Grid>
+
+                        </Grid>
+                        
+                            
+                        
+                    </Grid>
                 </TabItem>
                 <TabItem Header="Admin">
                     <StackPanel Orientation="Vertical" Background="#FFE5E5E5" Margin="0,-5,0,5">
