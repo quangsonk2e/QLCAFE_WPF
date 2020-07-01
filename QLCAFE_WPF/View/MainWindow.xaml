@@ -31,15 +31,38 @@
                 <MenuItem Header="_Save"/>
             </MenuItem>
         </Menu>
-        <Grid>
+        <Grid >
             <TabControl>
                 <TabItem Header="Bàn">
-                    <Grid Background="#FFE5E5E5">
-                        <TextBlock Text="fdfdf"/>
-                    </Grid>
+                    <WrapPanel Background="#FFE5E5E5" >
+                        <ListView VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 0 0 0" ItemsSource="{Binding TbF}">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Vertical">
+                                        <!--<Image Source="{Binding Image}" Stretch="None"/>-->
+                                        <Button Content="{Binding name}" Background="{Binding status, Converter={StaticResource con}}" Width="50" Height="50"                                                       
+                                                        Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type ListView}}, Path=DataContext.Clickbutton}"
+                                                        CommandParameter="{Binding status}">
+                                        </Button>
+                                       
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel IsItemsHost="True" Orientation="Horizontal"  />
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+                        </ListView>
+                    </WrapPanel>
                 </TabItem>
                 <TabItem Header="Admin">
-                    <Grid Background="#FFE5E5E5">
+                    <StackPanel Orientation="Vertical" Background="#FFE5E5E5" Margin="0,-5,0,5">
+                        <StackPanel Background="#FFE5E5E5" DataContext="{Binding Ac}">
+                            <TextBlock Text="fdfdf"/>
+                            <TextBlock Text="{Binding id}"/>
+                            <TextBlock Text="{Binding UserName,UpdateSourceTrigger=PropertyChanged}"/>
+                        </StackPanel>
                         <TextBlock><Run Text="123"/><Run Text=" "/><InlineUIContainer>
                         		<ComboBox Width="120" ItemsSource="{Binding Obs}" SelectedValue="{Binding Ac}">
                         			<ComboBox.ItemTemplate>  
@@ -57,7 +80,7 @@
                         			</ComboBox.ItemTemplate> 
                         		</ComboBox>
                         	</InlineUIContainer><Run Text=" "/><InlineUIContainer>
-                        		<ListView Height="420" Width="346" ItemsSource="{Binding Obs}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
+                        		<ListView Height="200" Width="282" ItemsSource="{Binding Obs}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
                         			 
                                     <ListBox.ItemTemplate>
                                        
@@ -65,7 +88,10 @@
                                             
                                             <StackPanel Orientation="Vertical">
                                                 <!--<Image Source="{Binding Image}" Stretch="None"/>-->
-                                                <Button Content="{Binding id}" Background="{Binding id, Converter={StaticResource con}}" Width="50" Height="50"  Command="{Binding Clickbutton}">
+                                                <Button Content="{Binding id}" Background="{Binding id, Converter={StaticResource con}}" Width="50" Height="50"  
+                                                        
+                                                        Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type ListView}}, Path=DataContext.Clickbutton}"
+                                                        CommandParameter="{Binding id}">
                                                     
                                                 </Button>
                                             </StackPanel>
@@ -78,7 +104,7 @@
                                     </ListBox.ItemsPanel>
                         		</ListView>
                         	</InlineUIContainer></TextBlock>
-                    </Grid>
+                    </StackPanel>
 
                 </TabItem>
             </TabControl>

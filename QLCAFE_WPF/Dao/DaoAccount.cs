@@ -19,7 +19,11 @@ namespace QLCAFE_WPF.Dao
         {
             qlcafe.Accounts.Add(account);
             qlcafe.SaveChanges();
-            return 1;
+            return account.id;
+        }
+        public Account getById(int id)
+        {
+            return qlcafe.Accounts.FirstOrDefault(x => x.id == id); 
         }
         public ObservableCollection<Account> getAll()
         {
@@ -34,6 +38,22 @@ namespace QLCAFE_WPF.Dao
                 return 1;
             }
             return 0;
+        }
+        public int delete(Account account)
+        {
+            qlcafe.Accounts.Remove(account);
+            qlcafe.SaveChanges();
+            return 1;
+        }
+        public int update(Account account)
+        {
+            var ac = qlcafe.Accounts.FirstOrDefault(x => x.id == account.id);
+            ac.DisplayName = account.DisplayName;
+            ac.Password = account.Password;
+            ac.UserName = account.UserName;
+            ac.Type = account.Type;
+            qlcafe.SaveChanges();
+            return 1;
         }
     }
 }

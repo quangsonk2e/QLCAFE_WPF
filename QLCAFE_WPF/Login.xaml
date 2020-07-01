@@ -5,7 +5,7 @@
         xmlns:i = "http://schemas.microsoft.com/expression/2010/interactivity"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
-        x:Name="VLogin"
+        x:Name="vlogin"
         Title="Login" Height="171.429" Width="439.85">
     <Window.DataContext>
         <local:LoginViewModel></local:LoginViewModel>
@@ -46,8 +46,8 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Button Grid.Column="0" Content="Đăng nhập" VerticalAlignment="Center" Padding="5" HorizontalAlignment="Center" Width="100" Command="{Binding login}" 
-                    CommandParameter="{Binding ElementName=VLogin}"  
-                    Background="OrangeRed"/>
+                    CommandParameter="{Binding ElementName=vlogin}"  
+                    Background="White"/>
             <Button Grid.Column="1" Content="Huỷ" VerticalAlignment="Center" Padding="5" HorizontalAlignment="Center" Width="100"  Command="{Binding close}"/>
         </Grid>
     </Grid>

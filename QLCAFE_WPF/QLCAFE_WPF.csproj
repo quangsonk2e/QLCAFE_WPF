@@ -80,6 +80,11 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Dao\DaoAccount.cs" />
+    <Compile Include="Dao\DaoBill.cs" />
+    <Compile Include="Dao\DaoBillInfo.cs" />
+    <Compile Include="Dao\DaoFood.cs" />
+    <Compile Include="Dao\DaoFoodCategory.cs" />
+    <Compile Include="Dao\DaoTableFood.cs" />
     <Compile Include="helper\Helper.cs" />
     <Compile Include="Model\Account.cs" />
     <Compile Include="Model\Bill.cs" />

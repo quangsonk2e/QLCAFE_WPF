@@ -15,15 +15,15 @@ namespace QLCAFE_WPF.Viewmodel
             switch (Int32.Parse(value.ToString())%2)
             {
                 case 0:
-                    return "Blue";
+                    return "Cornsilk";
                     
                 case 1:
-                    return "Red";
+                    return "White";
                 default:
-                    return "Blue";
+                    return "White";
             }
             
-            return "Black";
+            return "";
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
