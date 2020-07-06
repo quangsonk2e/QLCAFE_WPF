@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace QLCAFE_WPF.Dao
 {
-    class DaoFoodCategory
+    public class DaoFoodCategory
     {
         QLCafe qlcafe;
         public DaoFoodCategory()

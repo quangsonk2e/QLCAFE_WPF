@@ -63,7 +63,7 @@
                                     </ItemsPanelTemplate>
                                 </ListView.ItemsPanel>
                             </ListView>
-                            <Grid Grid.Column="1" Grid.Row="0" Background="White" Height="104" VerticalAlignment="Top">
+                            <Grid Grid.Column="1" Grid.Row="0" Background="White" Margin="0,0,0,301">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="26*"/>
                                     <RowDefinition/>
