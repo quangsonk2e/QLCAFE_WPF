@@ -5,7 +5,7 @@
         xmlns:i = "http://schemas.microsoft.com/expression/2010/interactivity"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
-        x:Name="vlogin"
+        x:Name="Vlogin"
         Title="Login" Height="171.429" Width="439.85">
     <Window.DataContext>
         <local:LoginViewModel></local:LoginViewModel>
@@ -23,15 +23,15 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            
+
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
         <TextBlock Text="Tên đăng nhập:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" FontWeight="Bold" />
         <TextBlock Text="Mật khẩu:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-        <TextBox Grid.Row="0" Grid.Column="1" Margin="5 5" HorizontalAlignment="Stretch" Text="{Binding UserName}"/>
-        <PasswordBox  Name="FloatingPasswordBox" Grid.Row="1" Grid.Column="1" Margin="5 5" Padding="5" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+        <TextBox Grid.Row="0" Grid.Column="1" Margin="5,10" HorizontalAlignment="Stretch" Text="{Binding UserName}" Padding="0"/>
+        <PasswordBox  Name="FloatingPasswordBox" Grid.Row="1" Grid.Column="1" Margin="5,10" Padding="5" VerticalAlignment="Center">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="PasswordChanged">
                     <i:InvokeCommandAction Command="{Binding PasswordChangedCommand}" 
@@ -46,7 +46,7 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Button Grid.Column="0" Content="Đăng nhập" VerticalAlignment="Center" Padding="5" HorizontalAlignment="Center" Width="100" Command="{Binding login}" 
-                    CommandParameter="{Binding ElementName=vlogin}"  
+                    CommandParameter="{Binding ElementName=Vlogin}"  
                     Background="White"/>
             <Button Grid.Column="1" Content="Huỷ" VerticalAlignment="Center" Padding="5" HorizontalAlignment="Center" Width="100"  Command="{Binding close}"/>
         </Grid>

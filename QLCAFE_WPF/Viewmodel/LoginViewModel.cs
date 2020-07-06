@@ -48,9 +48,10 @@ namespace QLCAFE_WPF.Viewmodel
         public LoginViewModel()
         {
            
-            login = new RelayCommand<Window>(x => true, x => {
+            login = new RelayCommand<Object>(x => true, x => {
                 MainWindow mainWindow = new MainWindow();
-                x.Hide();
+                var p = x as Window;
+                p.Hide();
                 mainWindow.ShowDialog();
                 
                 //if (dao.checkAccount(new Account{UserName=userName, Password=password})==1)

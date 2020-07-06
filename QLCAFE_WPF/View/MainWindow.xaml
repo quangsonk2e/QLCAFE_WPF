@@ -1,20 +1,21 @@
-﻿<Window x:Class="QLCAFE_WPF.View.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
          xmlns:i = "http://schemas.microsoft.com/expression/2010/interactivity"
          xmlns:local="clr-namespace:QLCAFE_WPF.Viewmodel"
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" x:Class="QLCAFE_WPF.View.MainWindow"
         WindowStartupLocation="CenterScreen"
         WindowState="Maximized"
         MinWidth="806"
         MinHeight="500"
-        Title="MainWindow" Height="500" Width="806.767">
-    <Window.DataContext>
-        <local:MainViewModel x:Name="ds"></local:MainViewModel>
-    </Window.DataContext>
+        Title="MainWindow" Height="500" Width="1126.267">
     <Window.Resources>
 
-        <local:intToColor x:Key="con" ></local:intToColor>
+        <local:intToColor x:Key="con" />
     </Window.Resources>
+    <Window.DataContext>
+        <local:MainViewModel x:Name="ds"/>
+    </Window.DataContext>
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Closed">
             <i:InvokeCommandAction Command="{Binding close}" 
@@ -36,35 +37,74 @@
         <Grid >
             <TabControl>
                 <TabItem Header="Bàn">
-                    <Grid  Background="#FFE5E5E5"  >
-                        
+                    <Grid  Background="#FFE5E5E5" HorizontalAlignment="Left" Width="1094"  >
+
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="2*"/>
-                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
 
                             <ListView Grid.Column="0" Grid.Row="0"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" ItemsSource="{Binding TbF}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" UseLayoutRounding="False">
-                                <ListBox.ItemTemplate>
+                                <ListView.ItemTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Vertical">
                                             <!--<Image Source="{Binding Image}" Stretch="None"/>-->
                                             <Button Content="{Binding name}" Background="{Binding status, Converter={StaticResource con}}" Width="50" Height="50"                                                       
-                                                        Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type ListView}}, Path=DataContext.Clickbutton}"
-                                                        CommandParameter="{Binding status}">
-                                            </Button>
+												Command="{Binding DataContext.Clickbutton, RelativeSource={RelativeSource AncestorType={x:Type ListView}, Mode=FindAncestor}}"
+												CommandParameter="{Binding status}"/>
 
                                         </StackPanel>
                                     </DataTemplate>
-                                </ListBox.ItemTemplate>
-                                <ListBox.ItemsPanel>
+                                </ListView.ItemTemplate>
+                                <ListView.ItemsPanel>
                                     <ItemsPanelTemplate>
                                         <WrapPanel />
                                     </ItemsPanelTemplate>
-                                </ListBox.ItemsPanel>
+                                </ListView.ItemsPanel>
                             </ListView>
-                            <Grid Grid.Column="1" Grid.Row="0" Background="White">
-                                <StackPanel>
+                            <Grid Grid.Column="1" Grid.Row="0" Background="White" Height="104" VerticalAlignment="Top">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="26*"/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Grid  Height="200" VerticalAlignment="Top" Margin="0,0,0,-92" Grid.RowSpan="2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition Width="99"/>
+
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Grid.Column="0" Height="106" VerticalAlignment="Top">
+                                        <Grid.Resources>
+                                            <Style TargetType="{x:Type TextBlock}">
+                                                <Setter Property="Padding" Value="10 5 0 0"/>
+                                            </Style>
+                                            <Style TargetType="{x:Type ComboBox}">
+                                                <Setter Property="Margin" Value="0 5 10 0"/>
+                                            </Style>
+                                        </Grid.Resources>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="100"/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="30"/>
+                                            <RowDefinition Height="30"/>
+                                            <RowDefinition Height="30"/>
+
+                                        </Grid.RowDefinitions>
+                                        <TextBlock Text="Chọn Nhóm" Grid.Column="0"/>
+                                        <ComboBox Grid.Row="0" Grid.Column="1" />
+                                        <TextBlock Text="Chọn Nhóm" Grid.Column="0" Grid.Row="1" Grid.RowSpan="2"/>
+                                        <ComboBox Grid.Row="1" Grid.Column="1"/>
+                                        <TextBlock Text="Số lượng" Grid.Column="0" Grid.Row="2" Grid.RowSpan="2"/>
+
+                                        <dxe:SpinEdit Grid.Column="1" Grid.Row="2" ShowEditorButtons="True" Margin="0,5,10,0" Padding="0" IsTextEditable="True" AllowRoundOutOfRangeValue="True" />
+
+                                    </Grid>
+                                    <Button Content="Thêm món" Grid.Column="1" Height="25" VerticalAlignment="Top" Margin="2,20,3,0"/>
+                                </Grid>
+                                <!--<StackPanel>
                                     <Grid>
                                         <Button Content="sdsd"></Button>
                                     </Grid>
@@ -74,13 +114,13 @@
                                     <Grid>
                                         <Button Content="sdsd"></Button>
                                     </Grid>
-                                </StackPanel>
+                                </StackPanel>-->
                             </Grid>
 
                         </Grid>
-                        
-                            
-                        
+
+
+
                     </Grid>
                 </TabItem>
                 <TabItem Header="Admin">
@@ -88,49 +128,45 @@
                         <StackPanel Background="#FFE5E5E5" DataContext="{Binding Ac}">
                             <TextBlock Text="fdfdf"/>
                             <TextBlock Text="{Binding id}"/>
-                            <TextBlock Text="{Binding UserName,UpdateSourceTrigger=PropertyChanged}"/>
+                            <TextBlock Text="{Binding UserName, UpdateSourceTrigger=PropertyChanged}"/>
                         </StackPanel>
                         <TextBlock><Run Text="123"/><Run Text=" "/><InlineUIContainer>
-                        		<ComboBox Width="120" ItemsSource="{Binding Obs}" SelectedValue="{Binding Ac}">
-                        			<ComboBox.ItemTemplate>  
-                        				<DataTemplate>  
-                        					<WrapPanel Orientation="Horizontal">  
-                                                <Button Background="Aqua" Content="{Binding id}">
-                                                    
-                                                </Button>
+								<ComboBox Width="120" ItemsSource="{Binding Obs}" SelectedValue="{Binding Ac}">
+									<ComboBox.ItemTemplate>  
+										<DataTemplate>  
+											<WrapPanel Orientation="Horizontal">  
+												<Button Background="Aqua" Content="{Binding id}"/>
                         						
-                                                <!--<TextBlock Text="{Binding id}"/>  
+												<!--<TextBlock Text="{Binding id}"/>  
                         						<TextBlock Text=" - "/>  
                         						<TextBlock Text="{Binding UserName}"/> --> 
-                        					</WrapPanel>  
-                        				</DataTemplate>  
-                        			</ComboBox.ItemTemplate> 
-                        		</ComboBox>
-                        	</InlineUIContainer><Run Text=" "/><InlineUIContainer>
-                        		<ListView Height="200" Width="282" ItemsSource="{Binding Obs}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
+											</WrapPanel>  
+										</DataTemplate>  
+									</ComboBox.ItemTemplate> 
+								</ComboBox>
+							</InlineUIContainer><Run Text=" "/><InlineUIContainer>
+								<ListView Height="200" Width="282" ItemsSource="{Binding Obs}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
                         			 
-                                    <ListBox.ItemTemplate>
+									<ListView.ItemTemplate>
                                        
-                                        <DataTemplate>
+										<DataTemplate>
                                             
-                                            <StackPanel Orientation="Vertical">
-                                                <!--<Image Source="{Binding Image}" Stretch="None"/>-->
-                                                <Button Content="{Binding id}" Background="{Binding id, Converter={StaticResource con}}" Width="50" Height="50"  
+											<StackPanel Orientation="Vertical">
+												<!--<Image Source="{Binding Image}" Stretch="None"/>-->
+												<Button Content="{Binding id}" Background="{Binding id, Converter={StaticResource con}}" Width="50" Height="50"  
                                                         
-                                                        Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type ListView}}, Path=DataContext.Clickbutton}"
-                                                        CommandParameter="{Binding id}">
-                                                    
-                                                </Button>
-                                            </StackPanel>
-                                        </DataTemplate>
-                                    </ListBox.ItemTemplate>
-                                    <ListBox.ItemsPanel>
-                                        <ItemsPanelTemplate>
-                                            <WrapPanel IsItemsHost="True" Orientation="Horizontal"  />
-                                        </ItemsPanelTemplate>
-                                    </ListBox.ItemsPanel>
-                        		</ListView>
-                        	</InlineUIContainer></TextBlock>
+													Command="{Binding DataContext.Clickbutton, RelativeSource={RelativeSource AncestorType={x:Type ListView}, Mode=FindAncestor}}"
+													CommandParameter="{Binding id}"/>
+											</StackPanel>
+										</DataTemplate>
+									</ListView.ItemTemplate>
+									<ListView.ItemsPanel>
+										<ItemsPanelTemplate>
+											<WrapPanel IsItemsHost="True" Orientation="Horizontal"  />
+										</ItemsPanelTemplate>
+									</ListView.ItemsPanel>
+								</ListView>
+							</InlineUIContainer></TextBlock>
                     </StackPanel>
 
                 </TabItem>
