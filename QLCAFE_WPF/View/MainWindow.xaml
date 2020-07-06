@@ -63,60 +63,9 @@
                                     </ItemsPanelTemplate>
                                 </ListView.ItemsPanel>
                             </ListView>
-                            <Grid Grid.Column="1" Grid.Row="0" Background="White" Margin="0,0,0,301">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="26*"/>
-                                    <RowDefinition/>
-                                </Grid.RowDefinitions>
-                                <Grid  Height="200" VerticalAlignment="Top" Margin="0,0,0,-92" Grid.RowSpan="2">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition />
-                                        <ColumnDefinition Width="99"/>
-
-                                    </Grid.ColumnDefinitions>
-                                    <Grid Grid.Column="0" Height="106" VerticalAlignment="Top">
-                                        <Grid.Resources>
-                                            <Style TargetType="{x:Type TextBlock}">
-                                                <Setter Property="Padding" Value="10 5 0 0"/>
-                                            </Style>
-                                            <Style TargetType="{x:Type ComboBox}">
-                                                <Setter Property="Margin" Value="0 5 10 0"/>
-                                            </Style>
-                                        </Grid.Resources>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="100"/>
-                                            <ColumnDefinition/>
-                                        </Grid.ColumnDefinitions>
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="30"/>
-                                            <RowDefinition Height="30"/>
-                                            <RowDefinition Height="30"/>
-
-                                        </Grid.RowDefinitions>
-                                        <TextBlock Text="Chọn Nhóm" Grid.Column="0"/>
-                                        <ComboBox Grid.Row="0" Grid.Column="1" />
-                                        <TextBlock Text="Chọn Nhóm" Grid.Column="0" Grid.Row="1" Grid.RowSpan="2"/>
-                                        <ComboBox Grid.Row="1" Grid.Column="1"/>
-                                        <TextBlock Text="Số lượng" Grid.Column="0" Grid.Row="2" Grid.RowSpan="2"/>
-
-                                        <dxe:SpinEdit Grid.Column="1" Grid.Row="2" ShowEditorButtons="True" Margin="0,5,10,0" Padding="0" IsTextEditable="True" AllowRoundOutOfRangeValue="True" />
-
-                                    </Grid>
-                                    <Button Content="Thêm món" Grid.Column="1" Height="25" VerticalAlignment="Top" Margin="2,20,3,0"/>
-                                </Grid>
-                                <!--<StackPanel>
-                                    <Grid>
-                                        <Button Content="sdsd"></Button>
-                                    </Grid>
-                                    <Grid>
-                                        <Button Content="sdsd"></Button>
-                                    </Grid>
-                                    <Grid>
-                                        <Button Content="sdsd"></Button>
-                                    </Grid>
-                                </StackPanel>-->
+                            <Grid Grid.Column="1">
+                                
                             </Grid>
-
                         </Grid>
 
 
