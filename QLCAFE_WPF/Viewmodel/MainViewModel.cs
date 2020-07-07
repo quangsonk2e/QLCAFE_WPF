@@ -132,9 +132,10 @@ namespace QLCAFE_WPF.Viewmodel
 
             
                 var cb = (System.Windows.Controls.ComboBox)x;
-                MessageBox.Show(cb.SelectedValue.ToString());
-                Food = new DaoFood().getAllbyCategory(Convert.ToInt32(cb.SelectedValue.ToString()));
-
+                //MessageBox.Show(cb.SelectedValue.ToString());
+               
+               Food = new DaoFood().getAllbyCategory(Convert.ToInt32(cb.SelectedValue.ToString()));
+             //   Food = new DaoFood().getAllbyCategory(FCa.id);
                 //Application.Current.Shutdown();
                 // Application.Current.Shutdown();
             });
