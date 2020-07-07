@@ -112,6 +112,9 @@
     <Compile Include="Model\FoodCategory.cs" />
     <Compile Include="Model\QLCafe.cs" />
     <Compile Include="Model\Tablefood.cs" />
+    <Compile Include="UserCT\Table.xaml.cs">
+      <DependentUpon>Table.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Viewmodel\intToColor.cs" />
     <Compile Include="Viewmodel\LoginViewModel.cs" />
     <Compile Include="Viewmodel\MainViewModel.cs" />
@@ -130,6 +133,10 @@
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
+    <Page Include="UserCT\Table.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\MainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -12,6 +12,10 @@
     <Window.Resources>
 
         <local:intToColor x:Key="con" />
+        <Style TargetType="TextBlock" x:Name="texttab1">
+            <Setter Property="FontWeight" Value="Bold"/>
+
+        </Style>
     </Window.Resources>
     <Window.DataContext>
         <local:MainViewModel x:Name="ds"/>
@@ -36,13 +40,13 @@
         </Menu>
         <Grid >
             <TabControl>
-                <TabItem Header="Bàn">
-                    <Grid  Background="#FFE5E5E5" HorizontalAlignment="Left" Width="1094"  >
+                <TabItem Header="Bàn" Background="#FFE5E5E5">
+                    <Grid  Background="#FFE5E5E5">
 
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="2*"/>
-                                <ColumnDefinition/>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="300"/>
                             </Grid.ColumnDefinitions>
 
                             <ListView Grid.Column="0" Grid.Row="0"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" ItemsSource="{Binding TbF}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" UseLayoutRounding="False">
@@ -63,9 +67,60 @@
                                     </ItemsPanelTemplate>
                                 </ListView.ItemsPanel>
                             </ListView>
-                            <Grid Grid.Column="1">
-                                
+                            
+                            <Grid Grid.Column="1" Background="White">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="130"/>
+                                    <RowDefinition/>
+                                    <RowDefinition Height="100"/>
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Row="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="70"/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="62"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Grid.Column="0" Grid.Row="0" Text="Chọn loại: " VerticalAlignment="Center" HorizontalAlignment="Right" Height="16" Margin="0,8,0,9" Width="53"/>
+                                    <TextBlock Grid.Column="0" Grid.Row="1" Text="Chọn món: " VerticalAlignment="Center" HorizontalAlignment="Right" Height="16" Margin="0,9" Width="58"/>
+                                    <TextBlock Grid.Column="0" Grid.Row="2" Text="Số lượng: " VerticalAlignment="Center" HorizontalAlignment="Right" Height="16" Margin="0,9,0,8" Width="50"/>
+                                    <TextBlock Grid.Column="0" Grid.Row="3" Text="Tên bàn: " VerticalAlignment="Center" HorizontalAlignment="Right" Height="16" Margin="0,9,0,8" Width="50"/>
+                                    <ComboBox Grid.Column="1" Grid.Row="0" Margin="5,4"/>
+                                    <ComboBox Grid.Column="1" Grid.Row="1" Margin="5"/>
+                                    
+                                    <dxe:SpinEdit Grid.Column="1" Grid.Row="2" Margin="5,4"/>
+                                    <TextBox Grid.Column="1" Grid.Row="3" Margin="5,4"/>
+                                    <Button Grid.Column="2" Content="Thêm" Margin="4,2" Grid.Row="1"/>
+                                </Grid>
+                                <GroupBox Grid.Row="1" Margin="0,0,-9,0" Header="Danh sách món">
+                                    <Grid>
+                                    <ListView Name="lvUsers" Margin="5 0 0 0">
+                                        <ListView.View>
+                                            <GridView>
+                                                <GridViewColumn Header="Name"  DisplayMemberBinding="{Binding Name}" />
+                                                <GridViewColumn Header="Age"  DisplayMemberBinding="{Binding Age}" />
+                                                <GridViewColumn Header="Mail"  DisplayMemberBinding="{Binding Mail}" />
+                                            </GridView>
+                                        </ListView.View>
+                                           
+                                        </ListView>
+                                </Grid>
+                                </GroupBox>
+                                <GroupBox Grid.Row="2" Margin="0,0,-9,0">
+                                <Grid>
+                                    <TextBlock Margin="10,10,200,43"><Run Text="Tổng tiền"/></TextBlock>
+                                    <TextBox Text="" Margin="92,10,10,43"/>
+                                    	
+                                    <Button Content="Thanh toán" Margin="98,41,82,7"/>
+                                </Grid>
+                                </GroupBox>
                             </Grid>
+                           
                         </Grid>
 
 
