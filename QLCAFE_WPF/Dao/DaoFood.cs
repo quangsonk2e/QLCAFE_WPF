@@ -30,6 +30,11 @@ namespace QLCAFE_WPF.Dao
 
             return new ObservableCollection<Food>(qlcafe.Foods.ToList());
         }
+        public ObservableCollection<Food> getAllbyCategory(int cate)
+        {
+
+            return new ObservableCollection<Food>(qlcafe.Foods.Where(x=>x.idCategory==cate).ToList());
+        }
         public int delete(Food Food)
         {
             qlcafe.Foods.Remove(Food);

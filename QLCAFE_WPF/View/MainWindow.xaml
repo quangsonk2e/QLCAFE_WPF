@@ -90,10 +90,17 @@
                                     <TextBlock Grid.Column="0" Grid.Row="1" Text="Chọn món: " VerticalAlignment="Center" HorizontalAlignment="Right" Height="16" Margin="0,9" Width="58"/>
                                     <TextBlock Grid.Column="0" Grid.Row="2" Text="Số lượng: " VerticalAlignment="Center" HorizontalAlignment="Right" Height="16" Margin="0,9,0,8" Width="50"/>
                                     <TextBlock Grid.Column="0" Grid.Row="3" Text="Tên bàn: " VerticalAlignment="Center" HorizontalAlignment="Right" Height="16" Margin="0,9,0,8" Width="50"/>
-                                    <ComboBox Grid.Column="1" Grid.Row="0" Margin="5,4"/>
-                                    <ComboBox Grid.Column="1" Grid.Row="1" Margin="5"/>
+                                    <ComboBox Grid.Column="1" Grid.Row="0" Margin="5,4" ItemsSource="{Binding NhomTA}" DisplayMemberPath="name" SelectedValuePath="id" SelectedValue="{Binding FCa, Mode=TwoWay}">
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="SelectionChanged">
+                                                <i:InvokeCommandAction Command="{Binding selectioonChanged_cbCategory}" CommandParameter="{Binding}" 
+                                   />
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </ComboBox>
+                                    <ComboBox Name="cbMon" Grid.Column="1" Grid.Row="1" Margin="5" ItemsSource="{Binding Food}" DisplayMemberPath="name" SelectedValuePath="id"/>
                                     
-                                    <dxe:SpinEdit Grid.Column="1" Grid.Row="2" Margin="5,4"/>
+                                    <dxe:SpinEdit Grid.Column="1" Grid.Row="2" Margin="5,4" IsTextEditable="True" AllowRoundOutOfRangeValue="True" MinValue="1" MaxValue="99999999999" IsReadOnly="False" Mask="n0" MaskCulture="vi-VN" />
                                     <TextBox Grid.Column="1" Grid.Row="3" Margin="5,4"/>
                                     <Button Grid.Column="2" Content="Thêm" Margin="4,2" Grid.Row="1"/>
                                 </Grid>

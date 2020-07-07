@@ -16,6 +16,26 @@ namespace QLCAFE_WPF.Viewmodel
         DaoAccount dao = new DaoAccount();
         private ObservableCollection<Tablefood> tbF;
         private ObservableCollection<Account> obs;
+        private ObservableCollection<FoodCategory> nhomTA;
+        private ObservableCollection<Food> food;
+
+        public ObservableCollection<Food> Food
+        {
+            get { return food; }
+            set { food = value; OnPropertyChanged();}
+        }
+        private FoodCategory fCa;
+
+        public FoodCategory FCa
+        {
+            get { return fCa; }
+            set { fCa = value; OnPropertyChanged(); }
+        }
+        public ObservableCollection<FoodCategory> NhomTA
+        {
+            get { return nhomTA; }
+            set { nhomTA = value; OnPropertyChanged(); }
+        }
         private Account ac;
 
         public Account Ac
@@ -75,6 +95,7 @@ namespace QLCAFE_WPF.Viewmodel
         
         public ICommand close { get; set; }
         public ICommand Clickbutton { get; set; }
+        public ICommand selectioonChanged_cbCategory { get; set; }
 
         public MainViewModel()
         {
@@ -83,6 +104,11 @@ namespace QLCAFE_WPF.Viewmodel
             ac = obs[1];
             tbF = new ObservableCollection<Tablefood>();
             tbF = new DaoTableFood().getAll();
+            nhomTA = new DaoFoodCategory().getAll();
+            
+            
+            food = new DaoFood().getAllbyCategory(0);
+            
             login = new RelayCommand<Account>(x => true, x => {
                 MessageBox.Show(password+"\n"+userName);
                // Application.Current.Shutdown();
@@ -101,7 +127,17 @@ namespace QLCAFE_WPF.Viewmodel
                 //Application.Current.Shutdown();
                 // Application.Current.Shutdown();
             });
+            selectioonChanged_cbCategory = new RelayCommand<object>(x => true, x =>
+            {
+
             
+                var cb = (System.Windows.Controls.ComboBox)x;
+                MessageBox.Show(cb.SelectedValue.ToString());
+
+
+                //Application.Current.Shutdown();
+                // Application.Current.Shutdown();
+            });
         }
         public ObservableCollection<Account> getAccout()
         {

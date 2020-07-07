@@ -23,7 +23,7 @@ namespace QLCAFE_WPF
         {
             InitializeComponent();
         }
-
+       
      
     }
 }
