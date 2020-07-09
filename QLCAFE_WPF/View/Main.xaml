@@ -9,26 +9,13 @@
         <Viewmodel:MainVM/>
     </Window.DataContext>
     <Grid>
-
-        <dxr:RibbonControl>
+        <dxr:RibbonControl RibbonStyle="Office2010">
             <dxr:RibbonDefaultPageCategory Caption="defaultCategory">
                 <dxr:RibbonPage Caption="Home">
-                    <dxr:RibbonPageGroup Caption="Thêm" ShowCaptionButton="False" Glyph="{dx:DXImage Image=Add_32x32.png}" SmallGlyph="{dx:DXImage Image=Add_16x16.png}" IsCaptionButtonEnabled="True">
-                        <dxb:BarButtonItem Content="BarButtonItem" RibbonStyle="Large" Glyph="{dx:DXImage Image=Add_32x32.png}" LargeGlyph="{dx:DXImage Image=Add_32x32.png}" Command="{Binding them}" CommandParameter="{Binding ElementName=dXTabControl}"/>
-                    </dxr:RibbonPageGroup>
+                    <dxr:RibbonPageGroup Caption="Tools"/>
                 </dxr:RibbonPage>
+                <dxr:RibbonPage Caption="Ribbon Page"/>
             </dxr:RibbonDefaultPageCategory>
         </dxr:RibbonControl>
-
-        <dx:DXTabControl x:Name="dXTabControl" Margin="0,150,0,0">
-            <dx:DXTabControl.View>
-                <dx:TabControlMultiLineView HideButtonShowMode="InAllTabs" RemoveTabItemsOnHiding="False" ShowHeaderMenu="False"/>
-            </dx:DXTabControl.View>
-            <dx:DXTabItem Header="Tab">
-                <Grid Background="Transparent"/>
-            </dx:DXTabItem>
-
-        </dx:DXTabControl>
-
     </Grid>
 </Window>

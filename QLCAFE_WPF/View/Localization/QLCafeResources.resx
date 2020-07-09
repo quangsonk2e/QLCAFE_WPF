@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+        <xsd:element name="root" msdata:IsDataSet="true">
+            <xsd:complexType>
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string" />
+                            <xsd:attribute name="type" type="xsd:string" />
+                            <xsd:attribute name="mimetype" type="xsd:string" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string" />
+                            <xsd:attribute name="name" type="xsd:string" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
+            </xsd:complexType>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="Account" xml:space="preserve">
+    <value>Account</value>
+  </data>
+    <data name="AccountPlural" xml:space="preserve">
+    <value>Accounts</value>
+  </data>
+    <data name="Account_id" xml:space="preserve">
+    <value>id</value>
+  </data>
+    <data name="Account_DisplayName" xml:space="preserve">
+    <value>Display Name</value>
+  </data>
+    <data name="Account_UserName" xml:space="preserve">
+    <value>User Name</value>
+  </data>
+    <data name="Account_Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+    <data name="Account_Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+    <data name="BillInfo" xml:space="preserve">
+    <value>Bill Info</value>
+  </data>
+    <data name="BillInfoPlural" xml:space="preserve">
+    <value>Bill Infoes</value>
+  </data>
+    <data name="BillInfo_id" xml:space="preserve">
+    <value>id</value>
+  </data>
+    <data name="BillInfo_count1" xml:space="preserve">
+    <value>count1</value>
+  </data>
+    <data name="BillInfo_Bill" xml:space="preserve">
+    <value>Bill</value>
+  </data>
+    <data name="BillInfo_Food" xml:space="preserve">
+    <value>Food</value>
+  </data>
+    <data name="Bill" xml:space="preserve">
+    <value>Bill</value>
+  </data>
+    <data name="BillPlural" xml:space="preserve">
+    <value>Bills</value>
+  </data>
+    <data name="Bill_id" xml:space="preserve">
+    <value>id</value>
+  </data>
+    <data name="Bill_DateCheckIn" xml:space="preserve">
+    <value>Date Check In</value>
+  </data>
+    <data name="Bill_DateCheckOut" xml:space="preserve">
+    <value>Date Check Out</value>
+  </data>
+    <data name="Bill_status" xml:space="preserve">
+    <value>status</value>
+  </data>
+    <data name="Bill_Tablefood" xml:space="preserve">
+    <value>Tablefood</value>
+  </data>
+    <data name="Tablefood" xml:space="preserve">
+    <value>Tablefood</value>
+  </data>
+    <data name="TablefoodPlural" xml:space="preserve">
+    <value>Tablefoods</value>
+  </data>
+    <data name="Tablefood_id" xml:space="preserve">
+    <value>id</value>
+  </data>
+    <data name="Tablefood_name" xml:space="preserve">
+    <value>name</value>
+  </data>
+    <data name="Tablefood_status" xml:space="preserve">
+    <value>status</value>
+  </data>
+    <data name="Food" xml:space="preserve">
+    <value>Food</value>
+  </data>
+    <data name="FoodPlural" xml:space="preserve">
+    <value>Foods</value>
+  </data>
+    <data name="Food_id" xml:space="preserve">
+    <value>id</value>
+  </data>
+    <data name="Food_name" xml:space="preserve">
+    <value>name</value>
+  </data>
+    <data name="Food_idCategory" xml:space="preserve">
+    <value>id Category</value>
+  </data>
+    <data name="Food_price" xml:space="preserve">
+    <value>price</value>
+  </data>
+    <data name="FoodCategory" xml:space="preserve">
+    <value>Food Category</value>
+  </data>
+    <data name="FoodCategoryPlural" xml:space="preserve">
+    <value>Food Categories</value>
+  </data>
+    <data name="FoodCategory_id" xml:space="preserve">
+    <value>id</value>
+  </data>
+    <data name="FoodCategory_name" xml:space="preserve">
+    <value>name</value>
+  </data>
+</root>
