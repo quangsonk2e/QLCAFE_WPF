@@ -14,23 +14,64 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="199"/>
         </Grid.ColumnDefinitions>
-        <dxlc:GroupBox Header="Danh sach ban" MaximizeElementVisibility="Hidden" MinimizeElementVisibility="Hidden"/>
-        <dxlc:LayoutControl Grid.Column="1" VerticalAlignment="Top">
-            <dxlc:LayoutGroup Orientation="Vertical">
-                <dxlc:LayoutGroup Header="LayoutGroup" View="GroupBox" Margin="-12,-12,-12,-2" Padding="0,2" Orientation="Vertical" Height="150" VerticalAlignment="Top">
-                    <dxlc:LayoutItem Label="Chon Loai">
-                        <dxe:ComboBoxEdit ItemsSource="{Binding ObsFoodCategory}" DisplayMember="name" ValueMember="id"/>
-                    </dxlc:LayoutItem>
-                    <dxlc:LayoutItem Label="Mon">
-                        <dxe:ComboBoxEdit ItemsSource="{Binding ObsFood}" DisplayMember="name" ValueMember="id"/>
-                    </dxlc:LayoutItem>
-                    <dxlc:LayoutItem Label="So Luong">
-                        <dxe:SpinEdit Mask="n0"/>
-                    </dxlc:LayoutItem>
-                    <dx:SimpleButton Content="SimpleButton" HorizontalAlignment="Center" VerticalAlignment="Top" Width="30" Height="30"/>
+        <dxlc:GroupBox Header="Danh sach ban" MaximizeElementVisibility="Hidden" MinimizeElementVisibility="Hidden">
+            <ListView Name="mylistview" ItemsSource="{Binding ObsTablefood}" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical">
+                            <Button Content="{Binding name}" Command="{Binding DataContext.mes, ElementName=mylistview}" CommandParameter="{Binding status}"></Button>
+                            
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+            </ListView>
+        </dxlc:GroupBox>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="159*"/>
+                <RowDefinition Height="267*"/>
+                <RowDefinition Height="112*"/>
+            </Grid.RowDefinitions>
+
+            <dxlc:LayoutControl Grid.Row="0" VerticalAlignment="Top" Height="160" Grid.RowSpan="2">
+                <dxlc:LayoutGroup Orientation="Vertical">
+                    <dxlc:LayoutGroup Header="LayoutGroup" View="GroupBox" Margin="-12,-12,-12,-2" Padding="0,2" Orientation="Vertical" Height="150" VerticalAlignment="Top">
+                        <dxlc:LayoutItem Label="Chon loại: ">
+                            <dxe:ComboBoxEdit ItemsSource="{Binding ObsFoodCategory}" DisplayMember="name" ValueMember="id"/>
+                        </dxlc:LayoutItem>
+                        <dxlc:LayoutItem Label="Món: ">
+                            <dxe:ComboBoxEdit ItemsSource="{Binding ObsFood}" DisplayMember="name" ValueMember="id"/>
+                        </dxlc:LayoutItem>
+                        <dxlc:LayoutItem Label="Số Lượng: ">
+                            <dxe:SpinEdit Mask="n0"/>
+                        </dxlc:LayoutItem>
+                        <dx:SimpleButton Content="Thêm món" HorizontalAlignment="Center" VerticalAlignment="Top" Width="100" Height="30"/>
+                    </dxlc:LayoutGroup>
                 </dxlc:LayoutGroup>
-            </dxlc:LayoutGroup>
-        </dxlc:LayoutControl>
-       
+            </dxlc:LayoutControl>
+            <ListView Grid.Row="1">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <dxlc:LayoutControl Grid.Row="2" Orientation="Vertical">
+                <dxlc:LayoutItem Label="LayoutItem">
+                    <dxe:TextEdit/>
+                </dxlc:LayoutItem>
+                <dxlc:LayoutItem Label="LayoutItem">
+                    <dxe:TextEdit/>
+                </dxlc:LayoutItem>
+                <Button Content="Thanh Toán" Width="100" Height="30"/>
+            </dxlc:LayoutControl>
+
+        </Grid>
+
     </Grid>
 </UserControl>

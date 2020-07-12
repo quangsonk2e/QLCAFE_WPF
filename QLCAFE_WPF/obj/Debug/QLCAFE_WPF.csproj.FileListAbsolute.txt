@@ -35,7 +35,6 @@ G:\soft\dotnet\wpf\QLCAFE_WPF\QLCAFE_WPF\obj\Debug\QLCAFE_WPF.csproj.GenerateRes
 G:\soft\dotnet\wpf\QLCAFE_WPF\QLCAFE_WPF\obj\Debug\QLCAFE_WPF.exe.licenses
 G:\soft\dotnet\wpf\QLCAFE_WPF\QLCAFE_WPF\obj\Debug\QLCAFE_WPF.exe
 G:\soft\dotnet\wpf\QLCAFE_WPF\QLCAFE_WPF\obj\Debug\QLCAFE_WPF.pdb
-G:\soft\dotnet\wpf\QLCAFE_WPF\QLCAFE_WPF\obj\Debug\QLCAFE_WPF.csprojResolveAssemblyReference.cache
 G:\soft\dotnet\wpf\QLCAFE_WPF\QLCAFE_WPF\obj\Debug\View\Main.baml
 G:\soft\dotnet\wpf\QLCAFE_WPF\QLCAFE_WPF\obj\Debug\View\Main.g.cs
 G:\soft\dotnet\wpf\QLCAFE_WPF\QLCAFE_WPF\bin\Debug\DevExpress.Images.v17.1.dll
@@ -43,3 +42,6 @@ G:\soft\dotnet\wpf\QLCAFE_WPF\QLCAFE_WPF\obj\Debug\UserCT\UserControl1.baml
 G:\soft\dotnet\wpf\QLCAFE_WPF\QLCAFE_WPF\obj\Debug\UserCT\UserControl1.g.cs
 G:\Soft\dotnet\wpf\QLCAFE_WPF\QLCAFE_WPF\obj\Debug\UserCT\UCTableAndPayment.baml
 G:\Soft\dotnet\wpf\QLCAFE_WPF\QLCAFE_WPF\obj\Debug\UserCT\UCTableAndPayment.g.cs
+G:\soft\dotnet\wpf\QLCAFE_WPF\QLCAFE_WPF\obj\Debug\View\Window2.baml
+G:\soft\dotnet\wpf\QLCAFE_WPF\QLCAFE_WPF\obj\Debug\View\Window2.g.cs
+G:\soft\dotnet\wpf\QLCAFE_WPF\QLCAFE_WPF\obj\Debug\QLCAFE_WPF.csprojResolveAssemblyReference.cache

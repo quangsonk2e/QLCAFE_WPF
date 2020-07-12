@@ -16,8 +16,10 @@ namespace QLCAFE_WPF.Viewmodel
             them = new RelayCommand<Object>(x=>true,x=>{
                 var tabs = (DXTabControl)x;
                 DXTabItem a = new DXTabItem();
-                a.Content = new UserCT.UserControl1();
+                a.Header = "Tab mới";
+                a.Content = new UserCT.UCTableAndPayment();
                 tabs.Items.Add(a);
+                DXMessageBox.Show("fdfdf");
             
             }
                 

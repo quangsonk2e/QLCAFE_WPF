@@ -5,11 +5,12 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Windows.Input;
 
 namespace QLCAFE_WPF.Viewmodel
 {
-    class TableAndPaymentViewModel:BaseViewModel
+   public class TableAndPaymentViewModel:BaseViewModel
     {
         private ObservableCollection<Tablefood> obsTablefood;
         private ObservableCollection<Account> obsAccount;
@@ -18,8 +19,7 @@ namespace QLCAFE_WPF.Viewmodel
 
         private Dao.DaoTableFood daoTableFood;
 
-        //Icommand
-       // public ICommand 
+   
 
 
         public ObservableCollection<FoodCategory> ObsFoodCategory
@@ -45,10 +45,23 @@ namespace QLCAFE_WPF.Viewmodel
         public TableAndPaymentViewModel()
         {
             daoTableFood = new Dao.DaoTableFood();
+            obsTablefood = new ObservableCollection<Tablefood>();
+            obsTablefood = daoTableFood.getAll();
             obsAccount = new ObservableCollection<Account>();
             obsFood = new ObservableCollection<Food>();
             obsFoodCategory = new ObservableCollection<FoodCategory>();
-            obsTablefood = new ObservableCollection<Tablefood>();
+
+
+            //Icommand
+            mes = new RelayCommand<Object>(x => true, x => {
+                var y=Convert.ToInt32(x);
+                MessageBox.Show(y.ToString());
+
+            });
+            
         }
+        //Icommand
+        // public ICommand 
+        public ICommand mes { get; set; }
     }
 }
