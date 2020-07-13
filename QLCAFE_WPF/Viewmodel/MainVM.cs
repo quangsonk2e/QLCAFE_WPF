@@ -14,13 +14,14 @@ namespace QLCAFE_WPF.Viewmodel
         public MainVM()
         {
             them = new RelayCommand<Object>(x=>true,x=>{
+                
                 var tabs = (DXTabControl)x;
                 DXTabItem a = new DXTabItem();
                 a.Header = "Tab mới";
                 a.Content = new UserCT.UCTableAndPayment();
                 tabs.Items.Add(a);
-                DXMessageBox.Show("fdfdf");
-            
+               // DXMessageBox.Show("fdfdf");
+                
             }
                 
                 );
