@@ -14,6 +14,7 @@ namespace QLCAFE_WPF.Viewmodel
 {
    public class TableAndPaymentViewModel:BaseViewModel
     {
+       
        private Dao.DaoTableFood daoTableFood;
        private Dao.DaoFoodCategory daoFoodCategory;
        private Dao.DaoFood daoFood;
@@ -21,8 +22,22 @@ namespace QLCAFE_WPF.Viewmodel
         private ObservableCollection<Account> obsAccount;
         private ObservableCollection<FoodCategory> obsFoodCategory;       
         private ObservableCollection<Food> obsFood;
+        private ObservableCollection<Object> obsObject;
+
+       //Cac thanh phan món, loại món, số lượng
+        private int idCategory = 0, idTableSelect=0, quantity=0, idFood=0;
+       
 
 
+
+        public ObservableCollection<Object> ObsObject
+        {
+            get { return obsObject; }
+            set { obsObject = value;
+            OnPropertyChanged();
+            }
+        }
+       
        
 
    
@@ -64,22 +79,40 @@ namespace QLCAFE_WPF.Viewmodel
             obsFoodCategory = new ObservableCollection<FoodCategory>();
             obsFoodCategory = daoFoodCategory.getAll();
 
+            obsObject = new ObservableCollection<object>();
+            obsObject = new ObservableCollection<Object>((from a in daoFood.getAll()
+                       join  b in new Dao.DaoBill().getAll()
+                       on a.id equals b.id
+                        select new
+                        {
+                           ma= a.id,
+                            ten=a.name,
+                            tenban=b.idTable
+                        }).ToList());
             //Icommand
-            mes = new RelayCommand<Object>(x => true, x => {
-                var y=Convert.ToInt32(x);
-                MessageBox.Show(y.ToString());
+            selectedTable = new RelayCommand<Object>(x => true, x => {
+                idTableSelect = Convert.ToInt32(x);
+
+                MessageBox.Show(idTableSelect.ToString());
 
             });
             cbFoodCategoryChangeIndex = new RelayCommand<Object>(x => true, x => {
                 var cb = (ComboBoxEdit)x;
                 FoodCategory index = (FoodCategory)cb.SelectedItem;
                 ObsFood = daoFood.getAllbyCategory(index.id);
+                
             });
-            
+            addFoodToTable = new RelayCommand<Object>(x => true, x => {
+
+
+
+                DXMessageBox.Show(idTableSelect.ToString());
+            });
         }
         //Icommand
         // public ICommand 
-        public ICommand mes { get; set; }
+        public ICommand selectedTable { get; set; }
         public ICommand cbFoodCategoryChangeIndex { get; set; }
+        public ICommand addFoodToTable { get; set; }
     }
 }

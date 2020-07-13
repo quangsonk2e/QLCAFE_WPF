@@ -46,5 +46,6 @@ namespace QLCAFE_WPF.Dao
             qlcafe.SaveChanges();
             return 1;
         }
+      
     }
 }

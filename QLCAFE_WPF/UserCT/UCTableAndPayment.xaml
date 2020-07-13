@@ -22,7 +22,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Vertical">
-                            <Button Content="{Binding name}" Command="{Binding DataContext.mes, ElementName=mylistview}" CommandParameter="{Binding status}"/>
+                            <Button Content="{Binding name}" Command="{Binding DataContext.selectedTable, ElementName=mylistview}" CommandParameter="{Binding id}"/>
 
                         </StackPanel>
                     </DataTemplate>
@@ -43,7 +43,7 @@
 
             <dxlc:LayoutControl Grid.Row="0" VerticalAlignment="Top" Height="160" Grid.RowSpan="2">
                 <dxlc:LayoutGroup Orientation="Vertical">
-                    <dxlc:LayoutGroup Header="LayoutGroup" View="GroupBox" Margin="-12,-12,-12,-2" Padding="0,2" Orientation="Vertical" Height="150" VerticalAlignment="Top">
+                    <dxlc:LayoutGroup Header="Thêm Món" View="GroupBox" Margin="-12,-12,-12,-2" Padding="0,2" Orientation="Vertical" Height="150" VerticalAlignment="Top">
                         <dxlc:LayoutItem Label="Chon loại: ">
                             <dxe:ComboBoxEdit x:Name="comboBoxEdit" ItemsSource="{Binding ObsFoodCategory}" DisplayMember="name" ValueMember="id">
                                 <dxmvvm:Interaction.Behaviors>
@@ -58,17 +58,20 @@
                         <dxlc:LayoutItem Label="Số Lượng: ">
                             <dxe:SpinEdit Mask="n0"/>
                         </dxlc:LayoutItem>
-                        <dx:SimpleButton Content="Thêm món" HorizontalAlignment="Center" VerticalAlignment="Top" Width="100" Height="30" Command=""/>
+                        <dx:SimpleButton Content="Thêm món" HorizontalAlignment="Center" VerticalAlignment="Top" Width="100" Height="30" Command="{Binding addFoodToTable}"/>
                     </dxlc:LayoutGroup>
                 </dxlc:LayoutGroup>
             </dxlc:LayoutControl>
-            <ListView Grid.Row="1">
+            <ListView Grid.Row="1" ItemsSource="{Binding ObsObject}">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn/>
+                        <GridViewColumn Header="Name"  DisplayMemberBinding="{Binding ma}" />
+                        <GridViewColumn Header="Age"  DisplayMemberBinding="{Binding ten}" />
+                        <GridViewColumn Header="Mail" DisplayMemberBinding="{Binding tenban}" />
                     </GridView>
                 </ListView.View>
             </ListView>
+            
             <dxlc:LayoutControl Grid.Row="2" Orientation="Vertical">
                 <dxlc:LayoutItem Label="LayoutItem">
                     <dxe:TextEdit/>
