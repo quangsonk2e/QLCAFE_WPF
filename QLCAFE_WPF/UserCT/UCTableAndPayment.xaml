@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="537.857" d:DesignWidth="554.888">
     <dxmvvm:Interaction.Behaviors>
-        <dx:DXSplashScreenService SplashScreenType="{x:Type QLCAFE_WPF:SplashScreenView1}" ShowSplashScreenOnLoading="True" SplashScreenStartupLocation="CenterOwner"/>
+        <dx:DXSplashScreenService SplashScreenType="{x:Type QLCAFE_WPF:SplashScreenView1}" ShowSplashScreenOnLoading="True" SplashScreenStartupLocation="CenterScreen"/>
     </dxmvvm:Interaction.Behaviors>
     <UserControl.DataContext>
         <Viewmodel:TableAndPaymentViewModel/>

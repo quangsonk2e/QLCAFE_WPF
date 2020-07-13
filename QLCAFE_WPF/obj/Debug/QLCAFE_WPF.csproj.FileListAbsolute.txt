@@ -47,5 +47,3 @@ G:\soft\dotnet\wpf\QLCAFE_WPF\QLCAFE_WPF\obj\Debug\View\Window2.g.cs
 G:\Soft\dotnet\wpf\QLCAFE_WPF\QLCAFE_WPF\obj\Debug\DXSplashScreen\SplashScreenView1.baml
 G:\Soft\dotnet\wpf\QLCAFE_WPF\QLCAFE_WPF\obj\Debug\DXSplashScreen\SplashScreenView1.g.cs
 G:\Soft\dotnet\wpf\QLCAFE_WPF\QLCAFE_WPF\obj\Debug\QLCAFE_WPF.csprojResolveAssemblyReference.cache
-G:\Soft\dotnet\wpf\QLCAFE_WPF\QLCAFE_WPF\obj\Debug\Window1.baml
-G:\Soft\dotnet\wpf\QLCAFE_WPF\QLCAFE_WPF\obj\Debug\Window1.g.cs
