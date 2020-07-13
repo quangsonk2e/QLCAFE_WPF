@@ -3,9 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:Viewmodel="clr-namespace:QLCAFE_WPF.Viewmodel" xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol" xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" xmlns:Serialization="clr-namespace:DevExpress.Xpf.LayoutControl.Serialization;assembly=DevExpress.Xpf.LayoutControl.v17.1" xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm" x:Class="QLCAFE_WPF.UserCT.UCTableAndPayment" 
+             xmlns:Viewmodel="clr-namespace:QLCAFE_WPF.Viewmodel" xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol" xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" xmlns:Serialization="clr-namespace:DevExpress.Xpf.LayoutControl.Serialization;assembly=DevExpress.Xpf.LayoutControl.v17.1" xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm" xmlns:QLCAFE_WPF="clr-namespace:QLCAFE_WPF" x:Class="QLCAFE_WPF.UserCT.UCTableAndPayment" 
              mc:Ignorable="d" 
              d:DesignHeight="537.857" d:DesignWidth="554.888">
+    <dxmvvm:Interaction.Behaviors>
+        <dx:DXSplashScreenService SplashScreenType="{x:Type QLCAFE_WPF:SplashScreenView1}" ShowSplashScreenOnLoading="True" SplashScreenStartupLocation="CenterOwner"/>
+    </dxmvvm:Interaction.Behaviors>
     <UserControl.DataContext>
         <Viewmodel:TableAndPaymentViewModel/>
     </UserControl.DataContext>

@@ -23,9 +23,10 @@ namespace QLCAFE_WPF.UserCT
     {
         public UCTableAndPayment()
         {
-            DXSplashScreen.Show<SplashScreenView1>();
+            
+         
             InitializeComponent();
-            DXSplashScreen.Close();
+            
         }
        
     }

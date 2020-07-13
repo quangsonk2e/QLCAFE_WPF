@@ -15,6 +15,7 @@ namespace QLCAFE_WPF.Viewmodel
         {
             them = new RelayCommand<Object>(x=>true,x=>{
                 
+               
                 var tabs = (DXTabControl)x;
                 DXTabItem a = new DXTabItem();
                 a.Header = "Tab mới";
