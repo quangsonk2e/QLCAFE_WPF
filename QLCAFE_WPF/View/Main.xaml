@@ -32,11 +32,7 @@
             <dx:DXTabControl.View>
                 <dx:TabControlMultiLineView HideButtonShowMode="InAllTabs"/>
             </dx:DXTabControl.View>
-            <dx:DXTabItem Header="Tab">
-                <Grid Background="Transparent">
-                    <UC:UCTableAndPayment/>
-                </Grid>
-            </dx:DXTabItem>
+            
         </dx:DXTabControl>
     </Grid>
 </Window>

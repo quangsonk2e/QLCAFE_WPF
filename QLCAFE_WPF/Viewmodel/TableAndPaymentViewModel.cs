@@ -1,4 +1,6 @@
-﻿using QLCAFE_WPF.Model;
+﻿using DevExpress.Xpf.Core;
+using DevExpress.Xpf.Editors;
+using QLCAFE_WPF.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -12,12 +14,16 @@ namespace QLCAFE_WPF.Viewmodel
 {
    public class TableAndPaymentViewModel:BaseViewModel
     {
+       private Dao.DaoTableFood daoTableFood;
+       private Dao.DaoFoodCategory daoFoodCategory;
+       private Dao.DaoFood daoFood;
         private ObservableCollection<Tablefood> obsTablefood;
         private ObservableCollection<Account> obsAccount;
         private ObservableCollection<FoodCategory> obsFoodCategory;       
         private ObservableCollection<Food> obsFood;
 
-        private Dao.DaoTableFood daoTableFood;
+
+       
 
    
 
@@ -44,13 +50,19 @@ namespace QLCAFE_WPF.Viewmodel
         }
         public TableAndPaymentViewModel()
         {
+            //Dao
             daoTableFood = new Dao.DaoTableFood();
+            daoFoodCategory = new Dao.DaoFoodCategory();
+            daoFood = new Dao.DaoFood();
+
+
+
             obsTablefood = new ObservableCollection<Tablefood>();
             obsTablefood = daoTableFood.getAll();
             obsAccount = new ObservableCollection<Account>();
             obsFood = new ObservableCollection<Food>();
             obsFoodCategory = new ObservableCollection<FoodCategory>();
-
+            obsFoodCategory = daoFoodCategory.getAll();
 
             //Icommand
             mes = new RelayCommand<Object>(x => true, x => {
@@ -58,10 +70,16 @@ namespace QLCAFE_WPF.Viewmodel
                 MessageBox.Show(y.ToString());
 
             });
+            cbFoodCategoryChangeIndex = new RelayCommand<Object>(x => true, x => {
+                var cb = (ComboBoxEdit)x;
+                FoodCategory index = (FoodCategory)cb.SelectedItem;
+                ObsFood = daoFood.getAllbyCategory(index.id);
+            });
             
         }
         //Icommand
         // public ICommand 
         public ICommand mes { get; set; }
+        public ICommand cbFoodCategoryChangeIndex { get; set; }
     }
 }

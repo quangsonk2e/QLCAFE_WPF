@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:Viewmodel="clr-namespace:QLCAFE_WPF.Viewmodel" xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol" xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" xmlns:Serialization="clr-namespace:DevExpress.Xpf.LayoutControl.Serialization;assembly=DevExpress.Xpf.LayoutControl.v17.1" x:Class="QLCAFE_WPF.UserCT.UCTableAndPayment" 
+             xmlns:Viewmodel="clr-namespace:QLCAFE_WPF.Viewmodel" xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol" xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" xmlns:Serialization="clr-namespace:DevExpress.Xpf.LayoutControl.Serialization;assembly=DevExpress.Xpf.LayoutControl.v17.1" xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm" x:Class="QLCAFE_WPF.UserCT.UCTableAndPayment" 
              mc:Ignorable="d" 
              d:DesignHeight="537.857" d:DesignWidth="554.888">
     <UserControl.DataContext>
@@ -15,12 +15,12 @@
             <ColumnDefinition Width="199"/>
         </Grid.ColumnDefinitions>
         <dxlc:GroupBox Header="Danh sach ban" MaximizeElementVisibility="Hidden" MinimizeElementVisibility="Hidden">
-            <ListView Name="mylistview" ItemsSource="{Binding ObsTablefood}" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListView x:Name="mylistview" ItemsSource="{Binding ObsTablefood}" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Vertical">
-                            <Button Content="{Binding name}" Command="{Binding DataContext.mes, ElementName=mylistview}" CommandParameter="{Binding status}"></Button>
-                            
+                            <Button Content="{Binding name}" Command="{Binding DataContext.mes, ElementName=mylistview}" CommandParameter="{Binding status}"/>
+
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
@@ -42,7 +42,12 @@
                 <dxlc:LayoutGroup Orientation="Vertical">
                     <dxlc:LayoutGroup Header="LayoutGroup" View="GroupBox" Margin="-12,-12,-12,-2" Padding="0,2" Orientation="Vertical" Height="150" VerticalAlignment="Top">
                         <dxlc:LayoutItem Label="Chon loại: ">
-                            <dxe:ComboBoxEdit ItemsSource="{Binding ObsFoodCategory}" DisplayMember="name" ValueMember="id"/>
+                            <dxe:ComboBoxEdit x:Name="comboBoxEdit" ItemsSource="{Binding ObsFoodCategory}" DisplayMember="name" ValueMember="id">
+                                <dxmvvm:Interaction.Behaviors>
+                                    <dxmvvm:EventToCommand EventName="SelectedIndexChanged" AllowChangingEventOwnerIsEnabled="False" Command="{Binding cbFoodCategoryChangeIndex}" CommandParameter="{Binding ElementName=comboBoxEdit}"/>
+
+                                </dxmvvm:Interaction.Behaviors>
+                            </dxe:ComboBoxEdit>
                         </dxlc:LayoutItem>
                         <dxlc:LayoutItem Label="Món: ">
                             <dxe:ComboBoxEdit ItemsSource="{Binding ObsFood}" DisplayMember="name" ValueMember="id"/>
@@ -50,7 +55,7 @@
                         <dxlc:LayoutItem Label="Số Lượng: ">
                             <dxe:SpinEdit Mask="n0"/>
                         </dxlc:LayoutItem>
-                        <dx:SimpleButton Content="Thêm món" HorizontalAlignment="Center" VerticalAlignment="Top" Width="100" Height="30"/>
+                        <dx:SimpleButton Content="Thêm món" HorizontalAlignment="Center" VerticalAlignment="Top" Width="100" Height="30" Command=""/>
                     </dxlc:LayoutGroup>
                 </dxlc:LayoutGroup>
             </dxlc:LayoutControl>

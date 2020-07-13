@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-G:\soft\dotnet\wpf\QLCAFE_WPF\QLCAFE_WPF\obj\Debug\
+G:\Soft\dotnet\wpf\QLCAFE_WPF\QLCAFE_WPF\obj\Debug\
 QLCAFE_WPF
 none
 false
 DEBUG;TRACE
-G:\soft\dotnet\wpf\QLCAFE_WPF\QLCAFE_WPF\App.xaml
+G:\Soft\dotnet\wpf\QLCAFE_WPF\QLCAFE_WPF\App.xaml
 61015980502
 
-34-1886826771
-38-2115914598
+34-193408014
+38-929227509
 Login.xaml;UserCT\UCTableAndPayment.xaml;UserCT\UserControl1.xaml;View\Main.xaml;View\MainWindow.xaml;View\Window2.xaml;
 
-True
+False
 
