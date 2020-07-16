@@ -53,7 +53,11 @@
                             </dxe:ComboBoxEdit>
                         </dxlc:LayoutItem>
                         <dxlc:LayoutItem Label="Món: ">
-                            <dxe:ComboBoxEdit ItemsSource="{Binding ObsFood}" DisplayMember="name" ValueMember="id"/>
+                            <dxe:ComboBoxEdit x:Name="cbFood" ItemsSource="{Binding ObsFood}" DisplayMember="name" ValueMember="id">
+                                <dxmvvm:Interaction.Behaviors>
+                                    <dxmvvm:EventToCommand EventName="SelectedIndexChanged" Command="{Binding cbFoodChangeIndex}" CommandParameter="{Binding ElementName=cbFood}"/>
+                                </dxmvvm:Interaction.Behaviors>
+                            </dxe:ComboBoxEdit>
                         </dxlc:LayoutItem>
                         <dxlc:LayoutItem Label="Số Lượng: ">
                             <dxe:SpinEdit Mask="n0"/>
@@ -68,6 +72,7 @@
                         <GridViewColumn Header="Name"  DisplayMemberBinding="{Binding ma}" />
                         <GridViewColumn Header="Age"  DisplayMemberBinding="{Binding ten}" />
                         <GridViewColumn Header="Mail" DisplayMemberBinding="{Binding tenban}" />
+                        <GridViewColumn Header="Tiền" DisplayMemberBinding="{Binding tien}" />
                     </GridView>
                 </ListView.View>
             </ListView>

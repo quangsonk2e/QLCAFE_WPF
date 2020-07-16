@@ -12,20 +12,20 @@ using System.Windows.Input;
 
 namespace QLCAFE_WPF.Viewmodel
 {
-   public class TableAndPaymentViewModel:BaseViewModel
+    public class FoodViewModel : BaseViewModel
     {
-       
-       private Dao.DaoTableFood daoTableFood;
-       private Dao.DaoFoodCategory daoFoodCategory;
-       private Dao.DaoFood daoFood;
-       private Dao.DaoBill daoBill;
+
+        private Dao.DaoTableFood daoTableFood;
+        private Dao.DaoFoodCategory daoFoodCategory;
+        private Dao.DaoFood daoFood;
+        private Dao.DaoBill daoBill;
         private ObservableCollection<Tablefood> obsTablefood;
         private ObservableCollection<Account> obsAccount;
-        private ObservableCollection<FoodCategory> obsFoodCategory;       
+        private ObservableCollection<FoodCategory> obsFoodCategory;
         private ObservableCollection<Food> obsFood;
         private ObservableCollection<Object> obsObject;
 
-       //Cac thanh phan món, loại món, số lượng
+        //Cac thanh phan món, loại món, số lượng
         private int idCategory = 0, idTableSelect = 0, quantity = 0, idFood = 0;
 
         public int IdFood
@@ -51,21 +51,23 @@ namespace QLCAFE_WPF.Viewmodel
             get { return idCategory; }
             set { idCategory = value; OnPropertyChanged(); }
         }
-       
+
 
 
 
         public ObservableCollection<Object> ObsObject
         {
             get { return obsObject; }
-            set { obsObject = value;
-            OnPropertyChanged();
+            set
+            {
+                obsObject = value;
+                OnPropertyChanged();
             }
         }
-       
-       
 
-   
+
+
+
 
 
         public ObservableCollection<FoodCategory> ObsFoodCategory
@@ -88,7 +90,7 @@ namespace QLCAFE_WPF.Viewmodel
             get { return obsAccount; }
             set { obsAccount = value; OnPropertyChanged(); }
         }
-        public TableAndPaymentViewModel()
+        public FoodViewModel()
         {
             //Dao
             daoTableFood = new Dao.DaoTableFood();
@@ -108,35 +110,37 @@ namespace QLCAFE_WPF.Viewmodel
             obsObject = new ObservableCollection<Object>(
                 (
                         from a in daoBill.getAll()
-                       join  b in new Dao.DaoTableFood().getAll() 
-                       on a.id equals b.id
-                       join c in new Dao.DaoBillInfo().getAll()
-                       on a.id equals c.idBill
-                       join d in new Dao.DaoFood().getAll()
-                       on c.idFood equals d.id
+                        join b in new Dao.DaoTableFood().getAll()
+                        on a.id equals b.id
+                        join c in new Dao.DaoBillInfo().getAll()
+                        on a.id equals c.idBill
+                        join d in new Dao.DaoFood().getAll()
+                        on c.idFood equals d.id
                         select new
                         {
-                           ma= a.id,
-                            ten=c.idFood,
-                            tenmon=c.Food.name,
-                            soluong=c.count1,
-                            tien=c.count1*c.Food.price,
-                            tenban=b.name
+                            ma = a.id,
+                            ten = c.idFood,
+                            tenmon = c.Food.name,
+                            soluong = c.count1,
+                            tien = c.count1 * c.Food.price,
+                            tenban = b.name
 
                         }).ToList());
             //Icommand
-            selectedTable = new RelayCommand<Object>(x => true, x => {
+            selectedTable = new RelayCommand<Object>(x => true, x =>
+            {
                 idTableSelect = Convert.ToInt32(x);
 
                 MessageBox.Show(idTableSelect.ToString());
 
             });
-            cbFoodCategoryChangeIndex = new RelayCommand<Object>(x => true, x => {
+            cbFoodCategoryChangeIndex = new RelayCommand<Object>(x => true, x =>
+            {
                 var cb = (ComboBoxEdit)x;
                 FoodCategory index = (FoodCategory)cb.SelectedItem;
                 ObsFood = daoFood.getAllbyCategory(index.id);
                 idCategory = index.id;
-                
+
             });
             cbFoodChangeIndex = new RelayCommand<Object>(x => true, x =>
             {
@@ -145,11 +149,12 @@ namespace QLCAFE_WPF.Viewmodel
                 idFood = index.id;
 
             });
-            addFoodToTable = new RelayCommand<Object>(x => true, x => {
+            addFoodToTable = new RelayCommand<Object>(x => true, x =>
+            {
 
-                
-               
-                DXMessageBox.Show(idTableSelect.ToString()+"ID: "+idFood+" ID Loại"+idCategory);
+
+
+                DXMessageBox.Show(idTableSelect.ToString() + "ID: " + idFood + " ID Loại" + idCategory);
             });
         }
         //Icommand

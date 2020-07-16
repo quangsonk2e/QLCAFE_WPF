@@ -3,9 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:Viewmodel="clr-namespace:QLCAFE_WPF.Viewmodel" xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon" xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars" xmlns:UserCT="clr-namespace:QLCAFE_WPF.UserCT"
         xmlns:UC="clr-namespace:QLCAFE_WPF.UserCT"
-        xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm" x:Class="QLCAFE_WPF.View.Main"
+        xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm" xmlns:DXSplashScreen="clr-namespace:QLCAFE_WPF.DXSplashScreen" x:Class="QLCAFE_WPF.View.Main"
         WindowState="Maximized"
         Title="Main" Height="456.768" Width="686.843" WindowStartupLocation="CenterScreen">
+    <dxmvvm:Interaction.Behaviors>
+        <dx:DXSplashScreenService ShowSplashScreenOnLoading="True" SplashScreenType="{x:Type DXSplashScreen:SplashScreenView2}"/>
+    </dxmvvm:Interaction.Behaviors>
     <Window.DataContext>
         <Viewmodel:MainVM/>
     </Window.DataContext>
@@ -17,22 +20,32 @@
         <dxr:RibbonControl RibbonStyle="Office2010">
             <dxr:RibbonDefaultPageCategory Caption="defaultCategory">
                 <dxr:RibbonPage Caption="Home">
-                    <dxr:RibbonPageGroup Caption="Tools" Glyph="{dx:DXImage Image=Add_32x32.png}" ShowCaptionButton="False">
+                    <dxr:RibbonPageGroup Caption="Bàn" Glyph="{dx:DXImage Image=Add_32x32.png}" ShowCaptionButton="False">
                         <dxb:BarButtonItem Content="Thêm" Glyph="{dx:DXImage Image=Add_16x16.png}" LargeGlyph="{dx:DXImage Image=Add_32x32.png}">
                             <dxmvvm:Interaction.Behaviors>
                                 <dxmvvm:EventToCommand EventName="ItemClick" Command="{Binding them}" CommandParameter="{Binding ElementName=dXTabControl}"/>
                             </dxmvvm:Interaction.Behaviors>
                         </dxb:BarButtonItem>
                     </dxr:RibbonPageGroup>
+                    <dxr:RibbonPageGroup Caption="Thuc An">
+                        <dxb:BarButtonItem Content="Danh muc" Glyph="{dx:DXImage Image=ClearFormatting_16x16.png}" Command="{Binding mFood}" CommandParameter="{Binding ElementName=dXTabControl}" Hint="s"/>
+                        <dxb:BarButtonItem Content="Thêm" Glyph="{dx:DXImage Image=EditName_16x16.png}" Command="{Binding AddFood}"/>
+                    </dxr:RibbonPageGroup>
+                    <dxr:RibbonPageGroup Caption="Nhom Thuc An">
+                        <dxb:BarButtonItem Content="Danh muc" Glyph="{dx:DXImage Image=Download_16x16.png}"/>
+                    </dxr:RibbonPageGroup>
+                    <dxr:RibbonPageGroup Caption="Ban">
+                        <dxb:BarButtonItem Content="Danh muc" Glyph="{dx:DXImage Image=InsertTableOfFigures_16x16.png}" RibbonStyle="Default"/>
+                    </dxr:RibbonPageGroup>
                 </dxr:RibbonPage>
-                <dxr:RibbonPage Caption="Ribbon Page"/>
+                <dxr:RibbonPage Caption="Tro Giup"/>
             </dxr:RibbonDefaultPageCategory>
         </dxr:RibbonControl>
         <dx:DXTabControl x:Name="dXTabControl" Grid.Row="1">
             <dx:DXTabControl.View>
                 <dx:TabControlMultiLineView HideButtonShowMode="InAllTabs"/>
             </dx:DXTabControl.View>
-            
+
         </dx:DXTabControl>
     </Grid>
 </Window>
