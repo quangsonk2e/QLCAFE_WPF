@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:Viewmodel="clr-namespace:QLCAFE_WPF.Viewmodel" xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm" xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" xmlns:QLCAFE_WPF="clr-namespace:QLCAFE_WPF" x:Class="QLCAFE_WPF.UserCT.FoodList" 
+             xmlns:Viewmodel="clr-namespace:QLCAFE_WPF.Viewmodel" xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm" xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" xmlns:QLCAFE_WPF="clr-namespace:QLCAFE_WPF" xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" x:Class="QLCAFE_WPF.UserCT.FoodList" 
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.DataContext>
@@ -13,11 +13,27 @@
         <dx:DXSplashScreenService SplashScreenType="{x:Type QLCAFE_WPF:SplashScreenView1}" ShowSplashScreenOnLoading="True"/>
     </dxmvvm:Interaction.Behaviors>
     <Grid >
-        <dxg:GridControl  AutoGenerateColumns="AddNew" EnableSmartColumnsGeneration="True" ItemsSource="{Binding ObsFoodCategory}" SelectionMode="Row" >
+        <dxg:GridControl x:Name="gridControl"  AutoGenerateColumns="None" ItemsSource="{Binding ObsFoodCategory, Mode=OneTime}" SelectionMode="Cell" Margin="0,0,0,54" >
+            <dxg:GridControl.Bands>
+                <dxg:GridControlBand Header="Danh sách nhóm">
+                    <dxg:GridColumn FieldName="id" Header="Mã Số"/>
+                    <dxg:GridColumn FieldName="name" Header="Mã Số"/>
+                    <dxg:GridColumn FieldName="Column1" UnboundType="Integer">
+                        <dxg:GridColumn.EditSettings>
+                            <dxe:ComboBoxEditSettings/>
+                        </dxg:GridColumn.EditSettings>
+                    </dxg:GridColumn>
+                </dxg:GridControlBand>
+            </dxg:GridControl.Bands>
+            <!--<dxmvvm:Interaction.Behaviors>
+                <dxmvvm:EventToCommand EventName="MouseDoubleClick" Command="{Binding dgFoodChangeIndex}" CommandParameter="{Binding ElementName=gridControl}"/>
+            </dxmvvm:Interaction.Behaviors>-->
+
 
             <dxg:GridControl.View >
-                <dxg:TableView AllowEditing="True" AllowPerPixelScrolling="True" ShowGroupPanel="False" ShowTotalSummary="True"/>
+                <dxg:TableView AllowEditing="True" AllowPerPixelScrolling="True" ShowGroupPanel="False" ShowTotalSummary="True" AutoWidth="True"/>
             </dxg:GridControl.View>
         </dxg:GridControl>
+        <Button Content="Button" Margin="44,0,0,11" Command="{Binding dgFoodChangeIndex}" Height="22" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="75"/>
     </Grid>
 </UserControl>

@@ -1,5 +1,6 @@
 ﻿using DevExpress.Xpf.Core;
 using DevExpress.Xpf.Editors;
+using DevExpress.Xpf.Grid;
 using QLCAFE_WPF.Model;
 using System;
 using System.Collections.Generic;
@@ -142,18 +143,21 @@ namespace QLCAFE_WPF.Viewmodel
                 idCategory = index.id;
 
             });
-            cbFoodChangeIndex = new RelayCommand<Object>(x => true, x =>
+            dgFoodChangeIndex = new RelayCommand<Object>(x => true, x =>
             {
-                var cb = (ComboBoxEdit)x;
-                Food index = (Food)cb.SelectedItem;
-                idFood = index.id;
+             //   var cb = (GridControl)x;
+              //  FoodCategory index = (FoodCategory)cb.SelectedItem;
+                string nameFood ="";
+                //= index.name;
+                foreach (var item in obsFoodCategory)
+                {
+                    nameFood += item.name+"\n";
+                }
+                DXMessageBox.Show(nameFood.ToString());
 
             });
             addFoodToTable = new RelayCommand<Object>(x => true, x =>
             {
-
-
-
                 DXMessageBox.Show(idTableSelect.ToString() + "ID: " + idFood + " ID Loại" + idCategory);
             });
         }
@@ -162,6 +166,6 @@ namespace QLCAFE_WPF.Viewmodel
         public ICommand selectedTable { get; set; }
         public ICommand cbFoodCategoryChangeIndex { get; set; }
         public ICommand addFoodToTable { get; set; }
-        public ICommand cbFoodChangeIndex { get; set; }
+        public ICommand dgFoodChangeIndex { get; set; }
     }
 }

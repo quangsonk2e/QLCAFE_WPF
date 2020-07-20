@@ -24,5 +24,10 @@ namespace QLCAFE_WPF.UserCT
         {
             InitializeComponent();
         }
+
+        private void gridControl_SelectedItemChanged(object sender, DevExpress.Xpf.Grid.SelectedItemChangedEventArgs e)
+        {
+            
+        }
     }
 }

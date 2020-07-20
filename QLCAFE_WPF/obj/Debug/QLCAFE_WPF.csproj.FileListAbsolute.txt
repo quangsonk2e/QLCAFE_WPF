@@ -50,6 +50,5 @@ G:\soft\dotnet\wpf\QLCAFE_WPF\QLCAFE_WPF\obj\Debug\DXSplashScreen\DXSplashScreen
 G:\soft\dotnet\wpf\QLCAFE_WPF\QLCAFE_WPF\obj\Debug\DXSplashScreen\DXSplashScreen\SplashScreenView2.g.cs
 G:\soft\dotnet\wpf\QLCAFE_WPF\QLCAFE_WPF\obj\Debug\UserCT\FoodList.baml
 G:\soft\dotnet\wpf\QLCAFE_WPF\QLCAFE_WPF\obj\Debug\UserCT\FoodList.g.cs
-G:\soft\dotnet\wpf\QLCAFE_WPF\QLCAFE_WPF\obj\Debug\QLCAFE_WPF.csprojResolveAssemblyReference.cache
 G:\soft\dotnet\wpf\QLCAFE_WPF\QLCAFE_WPF\obj\Debug\UserCT\FoodAdd.baml
 G:\soft\dotnet\wpf\QLCAFE_WPF\QLCAFE_WPF\obj\Debug\UserCT\FoodAdd.g.cs
