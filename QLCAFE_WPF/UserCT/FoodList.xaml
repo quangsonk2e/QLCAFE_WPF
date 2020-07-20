@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:Viewmodel="clr-namespace:QLCAFE_WPF.Viewmodel" xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm" xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" xmlns:QLCAFE_WPF="clr-namespace:QLCAFE_WPF" xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" x:Class="QLCAFE_WPF.UserCT.FoodList" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="305" d:DesignWidth="464">
     <UserControl.DataContext>
         <Viewmodel:FoodViewModel/>
     </UserControl.DataContext>
@@ -13,16 +13,12 @@
         <dx:DXSplashScreenService SplashScreenType="{x:Type QLCAFE_WPF:SplashScreenView1}" ShowSplashScreenOnLoading="True"/>
     </dxmvvm:Interaction.Behaviors>
     <Grid >
-        <dxg:GridControl x:Name="gridControl"  AutoGenerateColumns="None" ItemsSource="{Binding ObsFoodCategory, Mode=OneTime}" SelectionMode="Cell" Margin="0,0,0,54" >
+
+        <dxg:GridControl x:Name="gridControl"  AutoGenerateColumns="None" ItemsSource="{Binding ObsFoodCategory, Mode=OneTime}" SelectionMode="Cell" Margin="0,0,0,54" Grid.ColumnSpan="2" ShowBorder="False" >
             <dxg:GridControl.Bands>
                 <dxg:GridControlBand Header="Danh sách nhóm">
-                    <dxg:GridColumn FieldName="id" Header="Mã Số"/>
+                    <dxg:GridColumn FieldName="id" Header="Mã Số" SortOrder="Ascending" SortIndex="0"/>
                     <dxg:GridColumn FieldName="name" Header="Mã Số"/>
-                    <dxg:GridColumn FieldName="Column1" UnboundType="Integer">
-                        <dxg:GridColumn.EditSettings>
-                            <dxe:ComboBoxEditSettings/>
-                        </dxg:GridColumn.EditSettings>
-                    </dxg:GridColumn>
                 </dxg:GridControlBand>
             </dxg:GridControl.Bands>
             <!--<dxmvvm:Interaction.Behaviors>
@@ -31,9 +27,11 @@
 
 
             <dxg:GridControl.View >
-                <dxg:TableView AllowEditing="True" AllowPerPixelScrolling="True" ShowGroupPanel="False" ShowTotalSummary="True" AutoWidth="True"/>
+                <dxg:TableView Name="table" AllowEditing="True" AllowPerPixelScrolling="True" ShowGroupPanel="False" AutoWidth="True" ShowTotalSummary="True"/>
             </dxg:GridControl.View>
         </dxg:GridControl>
         <Button Content="Button" Margin="44,0,0,11" Command="{Binding dgFoodChangeIndex}" Height="22" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="75"/>
+        <Button Content="Thêm dòng" Margin="159,0,0,10" Command="{Binding Addrow}" Height="22" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="98" CommandParameter="{Binding ElementName=table}"/>
+        <Button Content="Thêm dòng" Margin="293,0,0,10" Command="{Binding Addrow}" Height="22" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="98" CommandParameter="{Binding ElementName=table}"/>
     </Grid>
 </UserControl>

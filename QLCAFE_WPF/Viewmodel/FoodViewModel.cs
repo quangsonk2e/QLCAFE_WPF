@@ -160,6 +160,12 @@ namespace QLCAFE_WPF.Viewmodel
             {
                 DXMessageBox.Show(idTableSelect.ToString() + "ID: " + idFood + " ID Loại" + idCategory);
             });
+
+            Addrow = new RelayCommand<Object>(x => true, x =>
+            {
+                var table = (TableView)x;
+                table.AddNewRow();
+            });
         }
         //Icommand
         // public ICommand 
@@ -167,5 +173,8 @@ namespace QLCAFE_WPF.Viewmodel
         public ICommand cbFoodCategoryChangeIndex { get; set; }
         public ICommand addFoodToTable { get; set; }
         public ICommand dgFoodChangeIndex { get; set; }
+
+
+        public ICommand Addrow { get; set; }
     }
 }

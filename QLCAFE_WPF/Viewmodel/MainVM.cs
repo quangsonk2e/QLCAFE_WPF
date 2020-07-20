@@ -45,8 +45,9 @@ namespace QLCAFE_WPF.Viewmodel
                 }
             });
             AddFood = new RelayCommand<Object>(x => true, x => {
-                
-               
+
+                window.Window1 a = new window.Window1();
+                a.ShowDialog();
             });
             them = new RelayCommand<Object>(x=>true,x=>{                
                 string header="Tab mới";

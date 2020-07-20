@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 G:\soft\dotnet\wpf\QLCAFE_WPF\QLCAFE_WPF\App.xaml
-101785975498
+11-1483516924
 
-391019384451
+40913317281
 42846636776
-DXSplashScreen\DXSplashScreen\SplashScreenView2.xaml;DXSplashScreen\SplashScreenView1.xaml;Login.xaml;UserCT\FoodAdd.xaml;UserCT\FoodList.xaml;UserCT\UCTableAndPayment.xaml;UserCT\UserControl1.xaml;View\Main.xaml;View\MainWindow.xaml;View\Window2.xaml;
+DXSplashScreen\DXSplashScreen\SplashScreenView2.xaml;DXSplashScreen\SplashScreenView1.xaml;Login.xaml;UserCT\FoodAdd.xaml;UserCT\FoodList.xaml;UserCT\UCTableAndPayment.xaml;UserCT\UserControl1.xaml;View\Main.xaml;View\MainWindow.xaml;View\Window2.xaml;window\Window1.xaml;
 
-True
+False
 

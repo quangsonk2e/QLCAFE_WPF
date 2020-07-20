@@ -52,3 +52,6 @@ G:\soft\dotnet\wpf\QLCAFE_WPF\QLCAFE_WPF\obj\Debug\UserCT\FoodList.baml
 G:\soft\dotnet\wpf\QLCAFE_WPF\QLCAFE_WPF\obj\Debug\UserCT\FoodList.g.cs
 G:\soft\dotnet\wpf\QLCAFE_WPF\QLCAFE_WPF\obj\Debug\UserCT\FoodAdd.baml
 G:\soft\dotnet\wpf\QLCAFE_WPF\QLCAFE_WPF\obj\Debug\UserCT\FoodAdd.g.cs
+G:\soft\dotnet\wpf\QLCAFE_WPF\QLCAFE_WPF\obj\Debug\QLCAFE_WPF.csprojResolveAssemblyReference.cache
+G:\soft\dotnet\wpf\QLCAFE_WPF\QLCAFE_WPF\obj\Debug\window\Window1.g.cs
+G:\soft\dotnet\wpf\QLCAFE_WPF\QLCAFE_WPF\obj\Debug\window\Window1.baml
